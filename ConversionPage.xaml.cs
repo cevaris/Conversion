@@ -36,7 +36,7 @@ namespace Conversion
             NumRight.Text = Math.Round(result, 6).ToString();
         }
 
-        void OnClicked(object sender, System.EventArgs e)
+        void OnChangedEvent(object sender, System.EventArgs e)
         {
             if (sender == SwapButton)
             {
@@ -44,6 +44,15 @@ namespace Conversion
                 pickerLeft.SelectedIndex = pickerRight.SelectedIndex;
                 pickerRight.SelectedIndex = tmp;
                 recalculate();
+            }
+
+            if(sender == pickerLeft || sender == pickerRight)
+            {
+                Picker picker = sender as Picker;
+                if (picker.SelectedIndex > 0)
+                {
+                    recalculate();
+                }
             }
         }
 
@@ -55,6 +64,5 @@ namespace Conversion
                 recalculate();
             }
         }
-
     }
 }
