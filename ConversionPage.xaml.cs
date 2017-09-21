@@ -34,7 +34,9 @@ namespace Conversion
         public ConversionPage()
         {
             InitializeComponent();
-            NumLeft.Text = "1";
+
+            conversions.Add(CreateKey(UnitGroup.Temperature, UnitType.Celsius, UnitType.Fahrenheit), (a) => a * (9.0 / 5.0) + 32);
+            conversions.Add(CreateKey(UnitGroup.Temperature, UnitType.Fahrenheit, UnitType.Celsius), (a) => (a - 32) * (5.0 / 9.0));
 
             TempUnits = new List<UnitType>
             {
@@ -51,10 +53,7 @@ namespace Conversion
             pickerRight.ItemsSource = TempUnits;
             pickerRight.SelectedIndex = 1;
 
-
-            conversions.Add(CreateKey(UnitGroup.Temperature, UnitType.Celsius, UnitType.Fahrenheit), (a) => a * (9.0 / 5.0) + 32);
-            conversions.Add(CreateKey(UnitGroup.Temperature, UnitType.Fahrenheit, UnitType.Celsius), (a) => (a - 32) * (5.0 / 9.0));
-
+            NumLeft.Text = "1";
             recalculate();
         }
 
@@ -80,6 +79,16 @@ namespace Conversion
                 recalculate();
             }
 
+        }
+
+        void OnTextChanged(object sender, Xamarin.Forms.TextChangedEventArgs e)
+        {
+            string text = ((Entry)sender).Text;
+
+            if (!String.IsNullOrEmpty(text))
+            {
+                recalculate();
+            }
         }
 
         private Tuple<UnitGroup, UnitType, UnitType> CreateKey(UnitGroup g, UnitType a, UnitType b)

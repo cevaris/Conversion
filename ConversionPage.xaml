@@ -15,11 +15,15 @@
             <Entry x:Name="NumLeft"
                 Keyboard="Numeric"
                 HorizontalOptions="CenterAndExpand"
-                WidthRequest="150" />
+                WidthRequest="150"
+                TextChanged="OnTextChanged" />
             <Entry x:Name="NumRight"
                 Keyboard="Numeric"
                 HorizontalOptions="CenterAndExpand"
-                WidthRequest="150" />
+                WidthRequest="150"
+                TextChanged="OnTextChanged"
+                IsEnabled="false"
+            />
         </StackLayout>
         <Button x:Name="SwapButton"
             Text="⇆"
@@ -28,12 +32,10 @@
         <StackLayout Orientation="Horizontal">
             <Picker x:Name="pickerLeft"
                 WidthRequest="150"
-                HorizontalOptions="CenterAndExpand"
-            />
+                HorizontalOptions="CenterAndExpand" />
             <Picker x:Name="pickerRight"
                 WidthRequest="150"
-                HorizontalOptions="CenterAndExpand"
-            />
+                HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </StackLayout>
 </ContentPage>
