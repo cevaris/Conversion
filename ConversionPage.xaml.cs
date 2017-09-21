@@ -6,23 +6,14 @@ namespace Conversion
 {
     public partial class ConversionPage : CarouselPage
     {
+        ILogger logger = new ConsoleLogger(nameof(ConversionPage));
+
         public ConversionPage()
         {
             InitializeComponent();
 
-            ItemsSource = new UnitGroup[] {
-                UnitGroup.Distance,
-                UnitGroup.Temperature
-            };
-
-            ItemTemplate = new DataTemplate(() =>
-            {
-                return new UnitPage();
-            });
-
-            //ItemsSource = new List<ContentPage>(){
-            //    new UnitPage()
-            //};
+            Children.Add(new UnitPage(UnitGroup.Temperature, Units.TemperatureOptions));
+            Children.Add(new UnitPage(UnitGroup.Distance, Units.TemperatureOptions));
         }
     }
 }

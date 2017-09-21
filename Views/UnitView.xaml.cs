@@ -6,7 +6,9 @@ namespace Conversion
 {
     public partial class UnitPage : ContentPage
     {
-        List<UnitType> TempUnits { get; set; }
+        List<UnitType> UnitTypes { get; set; }
+
+        UnitGroup SelectedUnitGroup { get; set; }
 
         private static ILogger logger = new ConsoleLogger(nameof(UnitPage));
 
@@ -15,12 +17,19 @@ namespace Conversion
         public UnitPage()
         {
             InitializeComponent();
+        }
 
-            TempUnits = Units.TemperatureOptions;
+        public UnitPage(UnitGroup unitGroup, List<UnitType> unitTypes)
+        {
+            InitializeComponent();
 
-            pickerLeft.ItemsSource = TempUnits;
+            HeaderLabel.Text = unitGroup.ToString();
+            SelectedUnitGroup = unitGroup;
+            UnitTypes = unitTypes;
+
+            pickerLeft.ItemsSource = UnitTypes;
             pickerLeft.SelectedIndex = 0;
-            pickerRight.ItemsSource = TempUnits;
+            pickerRight.ItemsSource = UnitTypes;
             pickerRight.SelectedIndex = 1;
 
             NumLeft.Text = "1";
@@ -29,10 +38,10 @@ namespace Conversion
 
         private void recalculate()
         {
-            UnitType typeLeft = TempUnits[pickerLeft.SelectedIndex];
-            UnitType typeRight = TempUnits[pickerRight.SelectedIndex];
+            UnitType typeLeft = UnitTypes[pickerLeft.SelectedIndex];
+            UnitType typeRight = UnitTypes[pickerRight.SelectedIndex];
 
-            Double result = conversions.Convert(UnitGroup.Temperature, typeLeft, typeRight, Convert.ToDouble(NumLeft.Text));
+            Double result = conversions.Convert(SelectedUnitGroup, typeLeft, typeRight, Convert.ToDouble(NumLeft.Text));
             NumRight.Text = Math.Round(result, 6).ToString();
         }
 

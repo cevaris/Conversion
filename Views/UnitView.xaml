@@ -2,9 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Conversion.UnitPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+            iOS="0, 20, 0, 0" />
+    </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Temperature"
+            <Label 
+                x:Name="HeaderLabel"
+                Text="UnitGroup"
                 VerticalOptions="Center"
                 HorizontalOptions="Center" />
             <StackLayout Orientation="Horizontal">
