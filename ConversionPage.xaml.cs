@@ -8,45 +8,15 @@ namespace Conversion
     {
         List<UnitType> TempUnits { get; set; }
 
+        private static ILogger logger = new ConsoleLogger(nameof(ConversionPage));
 
-        private ILogger logger = new ConsoleLogger(nameof(ConversionPage));
-
-        enum UnitGroup
-        {
-            Distance,
-            Temperature
-        };
-
-        enum UnitType
-        {
-            Celsius,
-            Fahrenheit,
-            Kelvin,
-            Reaumur,
-            Newton,
-            Rankine
-        };
-
-        Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>> conversions =
-                new Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>>();
-
+        private static Conversions conversions = Conversions.Instance;
 
         public ConversionPage()
         {
             InitializeComponent();
 
-            conversions.Add(CreateKey(UnitGroup.Temperature, UnitType.Celsius, UnitType.Fahrenheit), (a) => a * (9.0 / 5.0) + 32);
-            conversions.Add(CreateKey(UnitGroup.Temperature, UnitType.Fahrenheit, UnitType.Celsius), (a) => (a - 32) * (5.0 / 9.0));
-
-            TempUnits = new List<UnitType>
-            {
-                UnitType.Celsius,
-                UnitType.Fahrenheit,
-                UnitType.Kelvin,
-                UnitType.Reaumur,
-                UnitType.Newton,
-                UnitType.Rankine
-            };
+            TempUnits = Units.TemperatureOptions;
 
             pickerLeft.ItemsSource = TempUnits;
             pickerLeft.SelectedIndex = 0;
@@ -59,14 +29,11 @@ namespace Conversion
 
         private void recalculate()
         {
-            logger.Info($"{pickerLeft.SelectedIndex}:{pickerRight.SelectedIndex}");
             UnitType typeLeft = TempUnits[pickerLeft.SelectedIndex];
             UnitType typeRight = TempUnits[pickerRight.SelectedIndex];
 
-            if (conversions.TryGetValue(CreateKey(UnitGroup.Temperature, typeLeft, typeRight), out Func<Double, Double> conversion))
-            {
-                NumRight.Text = Math.Round(conversion(Convert.ToDouble(NumLeft.Text)), 6).ToString();
-            }
+            Double result = conversions.Convert(UnitGroup.Temperature, typeLeft, typeRight, Convert.ToDouble(NumLeft.Text));
+            NumRight.Text = Math.Round(result, 6).ToString();
         }
 
         void OnClicked(object sender, System.EventArgs e)
@@ -78,22 +45,16 @@ namespace Conversion
                 pickerRight.SelectedIndex = tmp;
                 recalculate();
             }
-
         }
 
         void OnTextChanged(object sender, Xamarin.Forms.TextChangedEventArgs e)
         {
             string text = ((Entry)sender).Text;
-
             if (!String.IsNullOrEmpty(text))
             {
                 recalculate();
             }
         }
 
-        private Tuple<UnitGroup, UnitType, UnitType> CreateKey(UnitGroup g, UnitType a, UnitType b)
-        {
-            return new Tuple<UnitGroup, UnitType, UnitType>(g, a, b);
-        }
     }
 }
