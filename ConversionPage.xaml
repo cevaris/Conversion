@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Conversion"
     x:Class="Conversion.ConversionPage">
-    <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness"
-            iOS="0, 20, 0, 0" />
-    </ContentPage.Padding>
-    <StackLayout>
-        <Label Text="Temperature"
-            VerticalOptions="Center"
-            HorizontalOptions="Center" />
-        <StackLayout Orientation="Horizontal">
-            <Entry x:Name="NumLeft"
-                Keyboard="Numeric"
-                HorizontalOptions="CenterAndExpand"
-                WidthRequest="150"
-                TextChanged="OnTextChanged" />
-            <Entry x:Name="NumRight"
-                Keyboard="Numeric"
-                HorizontalOptions="CenterAndExpand"
-                WidthRequest="150"
-                TextChanged="OnTextChanged"
-                IsEnabled="false"
-            />
-        </StackLayout>
-        <Button x:Name="SwapButton"
-            Text="⇆"
-            FontSize="40"
-            Clicked="OnChangedEvent" />
-        <StackLayout Orientation="Horizontal">
-            <Picker x:Name="pickerLeft"
-                WidthRequest="150"
-                HorizontalOptions="CenterAndExpand" 
-                SelectedIndexChanged="OnChangedEvent"
-            />
-            <Picker x:Name="pickerRight"
-                WidthRequest="150"
-                HorizontalOptions="CenterAndExpand" 
-                SelectedIndexChanged="OnChangedEvent"
-            />
-        </StackLayout>
-    </StackLayout>
-</ContentPage>
+</CarouselPage>
