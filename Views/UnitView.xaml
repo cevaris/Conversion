@@ -36,32 +36,32 @@
                     <StackLayout Orientation="Horizontal">
                         <Entry x:Name="NumLeft"
                             Keyboard="Numeric"
-                            HorizontalOptions="StartAndExpand"
-                            WidthRequest="200"
+                            HorizontalOptions="FillAndExpand"
                             FontSize="Large"
-                            HeightRequest="50"
+                            HeightRequest="40"
                             TextChanged="OnTextChanged" />
                         <Label x:Name="ResultInput"
                             Text="Unit"
                             FontSize="Large"
+                            WidthRequest="110"
                             HorizontalOptions="End"
                             VerticalOptions="Center" />
                     </StackLayout>
-                    <Label Text="is equal to"                        
+                    <Label Text="is equal to"
                         HorizontalOptions="Center"
                         VerticalOptions="Center" />
                     <StackLayout Orientation="Horizontal">
                         <Entry x:Name="NumRight"
                             Keyboard="Numeric"
-                            HorizontalOptions="StartAndExpand"
-                            WidthRequest="200"
+                            HorizontalOptions="FillAndExpand"
                             FontSize="Large"
-                            HeightRequest="50"
+                            HeightRequest="40"
                             TextChanged="OnTextChanged"
                             IsEnabled="false" />
                         <Label x:Name="ResultOutput"
                             Text="Unit"
                             FontSize="Large"
+                            WidthRequest="110"
                             HorizontalOptions="End"
                             VerticalOptions="Center" />
                     </StackLayout>
@@ -74,23 +74,22 @@
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Picker x:Name="pickerLeft"
-                        WidthRequest="140"
-                        HeightRequest="50"
-                        HorizontalOptions="CenterAndExpand"
+                        HeightRequest="40"
+                        HorizontalOptions="StartAndExpand"
+                        WidthRequest="110"
                         SelectedIndexChanged="OnChangedEvent" />
                     <Label x:Name="SwapLabel"
                         Text="⇆"
-                        FontSize="30"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center">
+                        FontSize="40"
+                        HorizontalOptions="CenterAndExpand">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnChangedEvent"
                                 NumberOfTapsRequired="1" />
                         </Label.GestureRecognizers>
                     </Label>
                     <Picker x:Name="pickerRight"
-                        WidthRequest="140"
-                        HorizontalOptions="CenterAndExpand"
+                        HorizontalOptions="EndAndExpand"
+                        WidthRequest="110"
                         SelectedIndexChanged="OnChangedEvent" />
                 </StackLayout>
             </StackLayout>
