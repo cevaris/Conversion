@@ -7,3 +7,6 @@ List of units
 
 Unicde
 - http://www.fileformat.info/info/unicode/char/21c6/browsertest.htm
+
+
+https://kent-boogaart.com/blog/jason-smith%27s-xamarin-forms-performance-tips

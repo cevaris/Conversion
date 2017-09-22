@@ -1,47 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Conversion"
     x:Class="Conversion.UnitPage">
-    <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness"
-            iOS="0, 20, 0, 0" />
-    </ContentPage.Padding>
-    <ContentPage.Content>
-        <StackLayout>
-            <local:CarouselBar HorizontalOptions="FillAndExpand"/>
-            <Label 
-                x:Name="HeaderLabel"
-                Text="UnitGroup"
-                VerticalOptions="Center"
-                HorizontalOptions="Center" />
-            <StackLayout Orientation="Horizontal">
-                <Entry x:Name="NumLeft"
-                    Keyboard="Numeric"
-                    HorizontalOptions="CenterAndExpand"
-                    WidthRequest="150"
-                    TextChanged="OnTextChanged" />
-                <Entry x:Name="NumRight"
-                    Keyboard="Numeric"
-                    HorizontalOptions="CenterAndExpand"
-                    WidthRequest="150"
-                    TextChanged="OnTextChanged"
-                    IsEnabled="false" />
-            </StackLayout>
-            <Button x:Name="SwapButton"
-                Text="⇆"
-                FontSize="40"
-                Clicked="OnChangedEvent" />
-            <StackLayout Orientation="Horizontal">
-                <Picker x:Name="pickerLeft"
-                    WidthRequest="150"
-                    HorizontalOptions="CenterAndExpand"
-                    SelectedIndexChanged="OnChangedEvent" />
-                <Picker x:Name="pickerRight"
-                    WidthRequest="150"
-                    HorizontalOptions="CenterAndExpand"
-                    SelectedIndexChanged="OnChangedEvent" />
-            </StackLayout>
+    <StackLayout Margin="30">
+        <Label x:Name="HeaderLabel"
+            Text="UnitGroup"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="NumLeft"
+                Keyboard="Numeric"
+                HorizontalOptions="CenterAndExpand"
+                WidthRequest="150"
+                TextChanged="OnTextChanged" />
+            <Entry x:Name="NumRight"
+                Keyboard="Numeric"
+                HorizontalOptions="CenterAndExpand"
+                WidthRequest="150"
+                TextChanged="OnTextChanged"
+                IsEnabled="false" />
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+        <Button x:Name="SwapButton"
+            Text="⇆"
+            FontSize="40"
+            Clicked="OnChangedEvent" />
+        <StackLayout Orientation="Horizontal">
+            <Picker x:Name="pickerLeft"
+                WidthRequest="150"
+                HorizontalOptions="CenterAndExpand"
+                SelectedIndexChanged="OnChangedEvent" />
+            <Picker x:Name="pickerRight"
+                WidthRequest="150"
+                HorizontalOptions="CenterAndExpand"
+                SelectedIndexChanged="OnChangedEvent" />
+        </StackLayout>
+    </StackLayout>
+</ContentView>

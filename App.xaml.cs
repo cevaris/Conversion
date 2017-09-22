@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 
+[assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace Conversion
 {
     public partial class App : Application
@@ -8,7 +9,7 @@ namespace Conversion
         {
             InitializeComponent();
 
-            MainPage = new ConversionPage();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

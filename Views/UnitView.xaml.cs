@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Conversion
 {
-    public partial class UnitPage : ContentPage
+    public partial class UnitPage : ContentView
     {
         List<UnitType> UnitTypes { get; set; }
 
