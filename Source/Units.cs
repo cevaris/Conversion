@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Conversion
 {
@@ -37,6 +38,10 @@ namespace Conversion
 
     class Units
     {
+        public static List<UnitGroup> UnitGroups = Enum.GetValues(typeof(UnitGroup))
+                                                       .Cast<UnitGroup>()
+                                                       .ToList();
+       
         public static List<UnitType> TemperatureOpts = new List<UnitType>
         {
             UnitType.Celsius,

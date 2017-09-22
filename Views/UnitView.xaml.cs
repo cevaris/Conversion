@@ -32,8 +32,22 @@ namespace Conversion
             pickerRight.ItemsSource = UnitTypes;
             pickerRight.SelectedIndex = 1;
 
-            HeaderLabelNext.Text = "Distance >";
-            HeaderLabelPrev.Text = "< Tempurature";
+            int index = Units.UnitGroups.FindIndex(x => x == unitGroup);            
+            if (index == 0)
+            {
+                HeaderLabelPrev.Text = "";
+                HeaderLabelNext.Text = $"{Units.UnitGroups[index + 1]} >";
+            }
+            else if (index == Units.UnitGroups.Count - 1)
+            {
+                HeaderLabelPrev.Text = $"< {Units.UnitGroups[index - 1]}";
+                HeaderLabelNext.Text = "";
+            }
+            else
+            {
+                HeaderLabelPrev.Text = $"< {Units.UnitGroups[index - 1]}";
+                HeaderLabelNext.Text = $"{Units.UnitGroups[index + 1]} >";
+            }
 
             NumLeft.Text = "1";
             recalculate();
@@ -46,6 +60,9 @@ namespace Conversion
 
             Double result = conversions.Convert(SelectedUnitGroup, typeLeft, typeRight, Convert.ToDouble(NumLeft.Text));
             NumRight.Text = Math.Round(result, 6).ToString();
+
+            ResultInput.Text = $"{NumLeft.Text} {typeLeft}";
+            ResultOutput.Text = $"{NumRight.Text} {typeRight}";
         }
 
         void OnChangedEvent(object sender, System.EventArgs e)

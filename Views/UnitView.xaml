@@ -6,46 +6,95 @@
         <OnPlatform x:TypeArguments="Thickness"
             iOS="0, 20, 0, 0" />
     </ContentPage.Padding>
-    <StackLayout Margin="10">
-        <StackLayout Orientation="Horizontal">
-            <Label x:Name="HeaderLabelPrev"
-                Text="UnitGroupPrev"
-                HorizontalOptions="StartAndExpand"
-                FontSize="Small" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackLayout Grid.Row="0"
+            Grid.Column="0"
+            Margin="10,0,10,0">
             <Label x:Name="HeaderLabel"
                 Text="UnitGroup"
-                HorizontalOptions="Center" />
-            <Label x:Name="HeaderLabelNext"
-                Text="UnitGroupNext"
-                HorizontalOptions="EndAndExpand"
-                FontSize="Small" />
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="End"
+                FontAttributes="Bold"
+                FontSize="Large" />
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="HeaderLabelPrev"
+                    Text="UnitGroupPrev"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="StartAndExpand"
+                    FontSize="Small" />
+                <Label x:Name="HeaderLabelNext"
+                    Text="UnitGroupNext"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="StartAndExpand"
+                    FontSize="Small" />
+            </StackLayout>
         </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Entry x:Name="NumLeft"
-                Keyboard="Numeric"
-                HorizontalOptions="CenterAndExpand"
-                WidthRequest="150"
-                TextChanged="OnTextChanged" />
-            <Entry x:Name="NumRight"
-                Keyboard="Numeric"
-                HorizontalOptions="CenterAndExpand"
-                WidthRequest="150"
-                TextChanged="OnTextChanged"
-                IsEnabled="false" />
+        <StackLayout Grid.Row="1"
+            Grid.Column="0"
+            Spacing="30"
+            Margin="10,0,10,0">
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="NumLeft"
+                    Keyboard="Numeric"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="140"
+                    FontSize="Large"
+                    HeightRequest="50"
+                    TextChanged="OnTextChanged" />
+                <Entry x:Name="NumRight"
+                    Keyboard="Numeric"
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="150"
+                    FontSize="Large"
+                    HeightRequest="50"
+                    TextChanged="OnTextChanged"
+                    IsEnabled="false" />
+            </StackLayout>
+            <StackLayout>
+                <Label x:Name="ResultInput"
+                    Text="X Unit"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Label Text="="
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Label x:Name="ResultOutput"
+                    Text="Y Unit"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Picker x:Name="pickerLeft"
+                    WidthRequest="140"
+                    HeightRequest="50"
+                    HorizontalOptions="CenterAndExpand"
+                    SelectedIndexChanged="OnChangedEvent" />
+                <Button x:Name="SwapButton"
+                    Text="⇆"
+                    FontSize="40"
+                    Clicked="OnChangedEvent" />
+                <Picker x:Name="pickerRight"
+                    WidthRequest="140"
+                    HorizontalOptions="CenterAndExpand"
+                    SelectedIndexChanged="OnChangedEvent" />
+            </StackLayout>
         </StackLayout>
-        <Button x:Name="SwapButton"
-            Text="⇆"
-            FontSize="40"
-            Clicked="OnChangedEvent" />
-        <StackLayout Orientation="Horizontal">
-            <Picker x:Name="pickerLeft"
-                WidthRequest="150"
-                HorizontalOptions="CenterAndExpand"
-                SelectedIndexChanged="OnChangedEvent" />
-            <Picker x:Name="pickerRight"
-                WidthRequest="150"
-                HorizontalOptions="CenterAndExpand"
-                SelectedIndexChanged="OnChangedEvent" />
-        </StackLayout>
-    </StackLayout>
+        <BoxView Grid.Row="2"
+            BackgroundColor="Olive"
+            Grid.Column="0" />
+    </Grid>
 </ContentPage>
