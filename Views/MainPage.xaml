@@ -8,7 +8,7 @@
             iOS="0, 20, 0, 0" />
     </ContentPage.Padding>
     <ContentPage.Content>
-        <ScrollView Orientation="Horizontal">
+        <ScrollView Orientation="Horizontal" x:Name="ScrollYo">
             <StackLayout x:Name="TestThis"
                 Orientation="Horizontal"
             />

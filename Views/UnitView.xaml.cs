@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Conversion
 {
-    public partial class UnitPage : ContentView
+    public partial class UnitPage : ContentPage
     {
         List<UnitType> UnitTypes { get; set; }
 
@@ -31,6 +31,9 @@ namespace Conversion
             pickerLeft.SelectedIndex = 0;
             pickerRight.ItemsSource = UnitTypes;
             pickerRight.SelectedIndex = 1;
+
+            HeaderLabelNext.Text = "Distance >";
+            HeaderLabelPrev.Text = "< Tempurature";
 
             NumLeft.Text = "1";
             recalculate();

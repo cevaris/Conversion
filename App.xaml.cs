@@ -9,7 +9,7 @@ namespace Conversion
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ConversionView();
         }
 
         protected override void OnStart()

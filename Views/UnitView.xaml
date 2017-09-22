@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Conversion"
     x:Class="Conversion.UnitPage">
-    <StackLayout Margin="30">
-        <Label x:Name="HeaderLabel"
-            Text="UnitGroup"
-            VerticalOptions="Center"
-            HorizontalOptions="Center" />
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+            iOS="0, 20, 0, 0" />
+    </ContentPage.Padding>
+    <StackLayout Margin="10">
+        <StackLayout Orientation="Horizontal">
+            <Label x:Name="HeaderLabelPrev"
+                Text="UnitGroupPrev"
+                HorizontalOptions="StartAndExpand"
+                FontSize="Small" />
+            <Label x:Name="HeaderLabel"
+                Text="UnitGroup"
+                HorizontalOptions="Center" />
+            <Label x:Name="HeaderLabelNext"
+                Text="UnitGroupNext"
+                HorizontalOptions="EndAndExpand"
+                FontSize="Small" />
+        </StackLayout>
         <StackLayout Orientation="Horizontal">
             <Entry x:Name="NumLeft"
                 Keyboard="Numeric"
@@ -36,4 +48,4 @@
                 SelectedIndexChanged="OnChangedEvent" />
         </StackLayout>
     </StackLayout>
-</ContentView>
+</ContentPage>
