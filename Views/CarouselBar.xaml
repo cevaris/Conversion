@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Conversion.CarouselBar">
+	<ContentView.Content>
+        <ScrollView Orientation="Horizontal">
+            <Label Text="Data"/>
+            <Label Text="Distance"/>
+            <Label Text="Speed"/>
+            <Label Text="Tempurature"/>
+            <Label Text="Time"/>
+            <Label Text="Weight"/>
+        </ScrollView>
+	</ContentView.Content>
+</ContentView>

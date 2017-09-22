@@ -6,7 +6,11 @@ namespace Conversion
     public enum UnitGroup
     {
         Distance,
-        Temperature
+        Data,
+        Speed,
+        Temperature,
+        Time,
+        Weight
     }
 
     public enum UnitType
@@ -16,12 +20,24 @@ namespace Conversion
         Kelvin,
         Reaumur,
         Newton,
-        Rankine
+        Rankine,
+
+        Kilometer,
+        Meter,
+        Kecimeter,
+        Centimeter,
+        Millimeter,
+        Mile,
+        Inch,
+        Foot,
+        Yard,
+        NauticalMile
+
     }
 
     class Units
     {
-        public static List<UnitType> TemperatureOptions = new List<UnitType>
+        public static List<UnitType> TemperatureOpts = new List<UnitType>
         {
             UnitType.Celsius,
             UnitType.Fahrenheit,
@@ -29,6 +45,20 @@ namespace Conversion
             UnitType.Reaumur,
             UnitType.Newton,
             UnitType.Rankine
+        };
+
+        public static List<UnitType> DistanceOpts = new List<UnitType>
+        {
+            UnitType.Kilometer,
+            UnitType.Meter,
+            UnitType.Kecimeter,
+            UnitType.Centimeter,
+            UnitType.Millimeter,
+            UnitType.Mile,
+            UnitType.Inch,
+            UnitType.Foot,
+            UnitType.Yard,
+            UnitType.NauticalMile
         };
 
     }
