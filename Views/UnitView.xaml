@@ -41,41 +41,43 @@
             Grid.Column="0"
             Spacing="30"
             Margin="10,0,10,0">
-            <StackLayout Orientation="Horizontal">
-                <Entry x:Name="NumLeft"
-                    Keyboard="Numeric"
-                    HorizontalOptions="CenterAndExpand"
-                    WidthRequest="140"
-                    FontSize="Large"
-                    HeightRequest="50"
-                    TextChanged="OnTextChanged" />
-                <Entry x:Name="NumRight"
-                    Keyboard="Numeric"
-                    HorizontalOptions="CenterAndExpand"
-                    WidthRequest="150"
-                    FontSize="Large"
-                    HeightRequest="50"
-                    TextChanged="OnTextChanged"
-                    IsEnabled="false" />
-            </StackLayout>
             <StackLayout>
-                <Label x:Name="ResultInput"
-                    Text="X Unit"
-                    FontSize="Large"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center" />
+                <StackLayout Orientation="Horizontal">
+                    <Entry x:Name="NumLeft"
+                        Keyboard="Numeric"
+                        HorizontalOptions="StartAndExpand"
+                        WidthRequest="200"
+                        FontSize="Large"
+                        HeightRequest="50"
+                        TextChanged="OnTextChanged" />
+                    <Label x:Name="ResultInput"
+                        Text="Unit"
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center" />
+                </StackLayout>
                 <Label Text="="
                     FontSize="Large"
                     FontAttributes="Bold"
                     HorizontalOptions="Center"
                     VerticalOptions="Center" />
-                <Label x:Name="ResultOutput"
-                    Text="Y Unit"
-                    FontSize="Large"
-                    FontAttributes="Bold"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center" />
+                <StackLayout Orientation="Horizontal">
+                    <Entry x:Name="NumRight"
+                        Keyboard="Numeric"
+                        HorizontalOptions="StartAndExpand"
+                        WidthRequest="200"
+                        FontSize="Large"
+                        HeightRequest="50"
+                        TextChanged="OnTextChanged"
+                        IsEnabled="false" />
+                    <Label x:Name="ResultOutput"
+                        Text="Unit"
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center" />
+                </StackLayout>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Picker x:Name="pickerLeft"

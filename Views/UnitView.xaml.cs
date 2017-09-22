@@ -61,8 +61,8 @@ namespace Conversion
             Double result = conversions.Convert(SelectedUnitGroup, typeLeft, typeRight, Convert.ToDouble(NumLeft.Text));
             NumRight.Text = Math.Round(result, 6).ToString();
 
-            ResultInput.Text = $"{NumLeft.Text} {typeLeft}";
-            ResultOutput.Text = $"{NumRight.Text} {typeRight}";
+            ResultInput.Text = typeLeft.ToString();
+            ResultOutput.Text = typeRight.ToString();
         }
 
         void OnChangedEvent(object sender, System.EventArgs e)
