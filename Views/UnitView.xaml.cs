@@ -67,7 +67,7 @@ namespace Conversion
 
         void OnChangedEvent(object sender, System.EventArgs e)
         {
-            if (sender == SwapButton)
+            if (sender == SwapLabel)
             {
                 var tmp = pickerLeft.SelectedIndex;
                 pickerLeft.SelectedIndex = pickerRight.SelectedIndex;
