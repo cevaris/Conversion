@@ -3,8 +3,23 @@
 [assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace Conversion
 {
+
     public partial class App : Application
     {
+        public static bool IsDebug
+        {
+            get
+            {
+                bool isDebug;
+#if DEBUG
+                isDebug = true;
+#else
+                isDebug = false;
+#endif
+                return isDebug;
+            }
+        }
+
         public App()
         {
             InitializeComponent();
