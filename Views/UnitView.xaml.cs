@@ -61,8 +61,8 @@ namespace Conversion
             Double result = conversions.Convert(SelectedUnitGroup, typeLeft, typeRight, Convert.ToDouble(NumLeft.Text));
             NumRight.Text = Math.Round(result, 6).ToString();
 
-            ResultInput.Text = typeLeft.ToString();
-            ResultOutput.Text = typeRight.ToString();
+            //ResultInput.Text = typeLeft.ToString();
+            //ResultOutput.Text = typeRight.ToString();
         }
 
         void OnChangedEvent(object sender, System.EventArgs e)
@@ -91,6 +91,21 @@ namespace Conversion
             if (!String.IsNullOrEmpty(text))
             {
                 recalculate();
+            }
+        }
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+            if (width > height)
+            {
+                //stackLayoutPickers.Orientation = StackOrientation.Horizontal;
+                logger.Info("setting orientation to horizontal");
+            }
+            else
+            {
+                //stackLayoutPickers.Orientation = StackOrientation.Vertical;
+                logger.Info("setting orientation to vertical");
             }
         }
     }

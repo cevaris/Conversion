@@ -56,6 +56,7 @@
     </Compile>
     <Compile Include="Source\Secrets.cs" />
     <Compile Include="PclAdBannerView.cs" />
+    <Compile Include="Views\WidthPicker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Source\" />

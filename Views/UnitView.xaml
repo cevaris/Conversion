@@ -9,26 +9,25 @@
     </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout VerticalOptions="Start"
+            <StackLayout Orientation="Horizontal"
+                VerticalOptions="Start"
                 Margin="10,0,10,0">
+                <Label x:Name="HeaderLabelPrev"
+                    Text="&lt; UnitGroupPrev"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="StartAndExpand"
+                    FontSize="Small" />
                 <Label x:Name="HeaderLabel"
                     Text="UnitGroup"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="End"
                     FontAttributes="Bold"
                     FontSize="Large" />
-                <StackLayout Orientation="Horizontal">
-                    <Label x:Name="HeaderLabelPrev"
-                        Text="&lt; UnitGroupPrev"
-                        HorizontalOptions="StartAndExpand"
-                        VerticalOptions="StartAndExpand"
-                        FontSize="Small" />
-                    <Label x:Name="HeaderLabelNext"
-                        Text="UnitGroupNext &gt;"
-                        HorizontalOptions="EndAndExpand"
-                        VerticalOptions="StartAndExpand"
-                        FontSize="Small" />
-                </StackLayout>
+                <Label x:Name="HeaderLabelNext"
+                    Text="UnitGroupNext &gt;"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="StartAndExpand"
+                    FontSize="Small" />
             </StackLayout>
             <StackLayout Spacing="20"
                 Margin="10,0,10,0"
@@ -37,34 +36,35 @@
                     <StackLayout Orientation="Horizontal">
                         <Entry x:Name="NumLeft"
                             Keyboard="Numeric"
-                            HorizontalOptions="FillAndExpand"
                             FontSize="Large"
                             HeightRequest="40"
+                            HorizontalOptions="FillAndExpand"
                             TextChanged="OnTextChanged" />
                         <Label x:Name="ResultInput"
-                            Text="Unit"
+                            Text="fs"
                             FontSize="Large"
-                            WidthRequest="110"
-                            HorizontalOptions="End"
-                            VerticalOptions="Center" />
+                            WidthRequest="50"
+                            VerticalOptions="Center"
+                            HorizontalOptions="End" />
                     </StackLayout>
-                    <Label Text="is equal to"
+                    <Label Text="="
+                        FontSize="40"
                         HorizontalOptions="Center"
                         VerticalOptions="Center" />
                     <StackLayout Orientation="Horizontal">
                         <Entry x:Name="NumRight"
                             Keyboard="Numeric"
-                            HorizontalOptions="FillAndExpand"
                             FontSize="Large"
                             HeightRequest="40"
                             TextChanged="OnTextChanged"
+                            HorizontalOptions="FillAndExpand"
                             IsEnabled="false" />
                         <Label x:Name="ResultOutput"
-                            Text="Unit"
+                            Text="fs"
                             FontSize="Large"
-                            WidthRequest="110"
-                            HorizontalOptions="End"
-                            VerticalOptions="Center" />
+                            WidthRequest="50"
+                            VerticalOptions="Center"
+                            HorizontalOptions="End" />
                     </StackLayout>
                 </StackLayout>
                 <StackLayout>
@@ -76,8 +76,7 @@
                 <StackLayout Orientation="Horizontal">
                     <Picker x:Name="pickerLeft"
                         HeightRequest="40"
-                        HorizontalOptions="StartAndExpand"
-                        WidthRequest="110"
+                        HorizontalOptions="CenterAndExpand"
                         SelectedIndexChanged="OnChangedEvent" />
                     <Label x:Name="SwapLabel"
                         Text="⇆"
@@ -89,15 +88,15 @@
                         </Label.GestureRecognizers>
                     </Label>
                     <Picker x:Name="pickerRight"
-                        HorizontalOptions="EndAndExpand"
-                        WidthRequest="110"
+                        HeightRequest="40"
+                        HorizontalOptions="CenterAndExpand"
                         SelectedIndexChanged="OnChangedEvent" />
                 </StackLayout>
             </StackLayout>
-            <StackLayout VerticalOptions="End" HeightRequest="50"> 
-                <!--<BoxView BackgroundColor="Olive"
-                    HeightRequest="50" />-->
-                <local:PclAdBannerView />
+            <StackLayout VerticalOptions="End">
+                <BoxView BackgroundColor="Olive"
+                    HeightRequest="50" />
+                <!--<local:PclAdBannerView />-->
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
