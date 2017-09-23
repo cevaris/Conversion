@@ -3,12 +3,11 @@ using Xamarin.Forms;
 
 namespace Conversion
 {
-    public interface IMessage<A>
+    public interface IMessage
     {
-        void Send(A sender);
     }
 
-    public class ScrollToUnitGroupMessage : IMessage<UnitPage>
+    public class ScrollToUnitGroupMessage : IMessage
     {
         public UnitGroup SelectedItem { get; set; }
 
@@ -23,6 +22,11 @@ namespace Conversion
         public void Send(UnitPage sender)
         {
             MessagingCenter.Send<UnitPage, ScrollToUnitGroupMessage>(sender, Name, this);
+        }
+
+        public static void Subscribe(ConversionView subscriber, Action<UnitPage, ScrollToUnitGroupMessage> func)
+        {
+            MessagingCenter.Subscribe<UnitPage, ScrollToUnitGroupMessage>(subscriber, Name, func);
         }
     }
 }

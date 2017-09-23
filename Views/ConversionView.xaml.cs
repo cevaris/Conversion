@@ -25,7 +25,7 @@ namespace Conversion
                 logger.Info($"changed page to {((UnitPage)CurrentPage).SelectedUnitGroup}");
             };
 
-            MessagingCenter.Subscribe<UnitPage, ScrollToUnitGroupMessage>(this, ScrollToUnitGroupMessage.Name, (sender, args) =>
+            ScrollToUnitGroupMessage.Subscribe(this, (sender, args) =>
             {
                 // find page by unitPage
                 // CurrentPage = blah
