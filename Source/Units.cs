@@ -6,8 +6,8 @@ namespace Conversion
 {
     public enum UnitGroup
     {
-        Distance,
         Data,
+        Distance,
         Speed,
         Temperature,
         Time,

@@ -16,7 +16,12 @@
                     Text="&lt; UnitGroupPrev"
                     HorizontalOptions="StartAndExpand"
                     VerticalOptions="StartAndExpand"
-                    FontSize="Small" />
+                    FontSize="Small">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnChangedEvent"
+                            NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
                 <Label x:Name="HeaderLabel"
                     Text="UnitGroup"
                     HorizontalOptions="CenterAndExpand"
@@ -27,7 +32,12 @@
                     Text="UnitGroupNext &gt;"
                     HorizontalOptions="EndAndExpand"
                     VerticalOptions="StartAndExpand"
-                    FontSize="Small" />
+                    FontSize="Small">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnChangedEvent"
+                            NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
             <StackLayout Spacing="20"
                 Margin="10,0,10,0"
@@ -86,9 +96,8 @@
                     <Picker x:Name="pickerLeft"
                         HeightRequest="40"
                         HorizontalOptions="FillAndExpand"
-                        SelectedIndexChanged="OnChangedEvent" 
-                        Grid.Column="0"
-                    />
+                        SelectedIndexChanged="OnChangedEvent"
+                        Grid.Column="0" />
                     <Label x:Name="SwapLabel"
                         Text="⇆"
                         FontSize="40"
@@ -102,9 +111,8 @@
                     <Picker x:Name="pickerRight"
                         HeightRequest="40"
                         HorizontalOptions="FillAndExpand"
-                        SelectedIndexChanged="OnChangedEvent" 
-                        Grid.Column="2"
-                    />
+                        SelectedIndexChanged="OnChangedEvent"
+                        Grid.Column="2" />
                 </Grid>
                 <!--                </StackLayout>-->
             </StackLayout>

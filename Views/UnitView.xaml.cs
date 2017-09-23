@@ -6,9 +6,9 @@ namespace Conversion
 {
     public partial class UnitPage : ContentPage
     {
-        List<UnitType> UnitTypes { get; set; }
+        public List<UnitType> UnitTypes { get; set; }
 
-        UnitGroup SelectedUnitGroup { get; set; }
+        public UnitGroup SelectedUnitGroup { get; set; }
 
         private static ILogger logger = new ConsoleLogger(nameof(UnitPage));
 
@@ -32,7 +32,7 @@ namespace Conversion
             pickerRight.ItemsSource = UnitTypes;
             pickerRight.SelectedIndex = 1;
 
-            int index = Units.UnitGroups.FindIndex(x => x == unitGroup);            
+            int index = Units.UnitGroups.FindIndex(x => x == unitGroup);
             if (index == 0)
             {
                 HeaderLabelPrev.Text = "";
@@ -75,6 +75,31 @@ namespace Conversion
                 recalculate();
             }
 
+            if (sender == HeaderLabelPrev || sender == HeaderLabelNext)
+            {
+                int index = Units.UnitGroups.FindIndex(x => x == SelectedUnitGroup);
+                UnitGroup? requestedUnitGroup = null;
+                if (sender == HeaderLabelPrev && !string.IsNullOrEmpty(HeaderLabelPrev.Text))
+                {
+                    requestedUnitGroup = Units.UnitGroups[index - 1];
+                }
+
+                if (sender == HeaderLabelNext && !string.IsNullOrEmpty(HeaderLabelNext.Text))
+                {
+                    requestedUnitGroup = Units.UnitGroups[index + 1];
+                }
+
+                if (requestedUnitGroup.HasValue)
+                {
+                    var message = new ScrollToUnitGroupMessage
+                    {
+                        SelectedItem = requestedUnitGroup.Value
+                    };
+                    message.Send(this);
+                }
+
+            }
+
             if (sender == pickerLeft || sender == pickerRight)
             {
                 Picker picker = sender as Picker;
@@ -91,21 +116,6 @@ namespace Conversion
             if (!String.IsNullOrEmpty(text))
             {
                 recalculate();
-            }
-        }
-
-        protected override void OnSizeAllocated(double width, double height)
-        {
-            base.OnSizeAllocated(width, height);
-            if (width > height)
-            {
-                //stackLayoutPickers.Orientation = StackOrientation.Horizontal;
-                logger.Info("setting orientation to horizontal");
-            }
-            else
-            {
-                //stackLayoutPickers.Orientation = StackOrientation.Vertical;
-                logger.Info("setting orientation to vertical");
             }
         }
     }
