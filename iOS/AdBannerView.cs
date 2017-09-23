@@ -6,14 +6,14 @@ using CoreGraphics;
 using Conversion;
 using Conversion.iOS;
 
-[assembly: ExportRenderer(typeof(AdBannerView), typeof(IAdBannerView))]
+[assembly: ExportRenderer(typeof(AdBannerView), typeof(PclAdBannerView))]
 namespace Conversion.iOS
 {
     public class AdBannerView : ViewRenderer
     {
         BannerView adView;
         bool viewOnScreen = false;
-        private readonly static ILogger logger = new ConsoleLogger(nameof(AdBannerView));
+        private static ILogger logger = new ConsoleLogger(nameof(AdBannerView));
 
         protected override void OnElementChanged(ElementChangedEventArgs<View> e)
         {

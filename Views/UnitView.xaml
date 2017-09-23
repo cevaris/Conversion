@@ -94,10 +94,10 @@
                         SelectedIndexChanged="OnChangedEvent" />
                 </StackLayout>
             </StackLayout>
-            <StackLayout VerticalOptions="End">
+            <StackLayout VerticalOptions="End" HeightRequest="50"> 
                 <!--<BoxView BackgroundColor="Olive"
                     HeightRequest="50" />-->
-                <local:IAdBannerView />
+                <local:PclAdBannerView />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
