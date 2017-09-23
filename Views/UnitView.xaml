@@ -73,15 +73,27 @@
                         BackgroundColor="Gray"
                         HorizontalOptions="Center" />
                 </StackLayout>
-                <StackLayout Orientation="Horizontal">
+                <!--                <StackLayout Orientation="Horizontal">-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="40" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
                     <Picker x:Name="pickerLeft"
                         HeightRequest="40"
-                        HorizontalOptions="CenterAndExpand"
-                        SelectedIndexChanged="OnChangedEvent" />
+                        HorizontalOptions="FillAndExpand"
+                        SelectedIndexChanged="OnChangedEvent" 
+                        Grid.Column="0"
+                    />
                     <Label x:Name="SwapLabel"
                         Text="⇆"
                         FontSize="40"
-                        HorizontalOptions="CenterAndExpand">
+                        HorizontalOptions="CenterAndExpand"
+                        Grid.Column="1">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnChangedEvent"
                                 NumberOfTapsRequired="1" />
@@ -89,9 +101,12 @@
                     </Label>
                     <Picker x:Name="pickerRight"
                         HeightRequest="40"
-                        HorizontalOptions="CenterAndExpand"
-                        SelectedIndexChanged="OnChangedEvent" />
-                </StackLayout>
+                        HorizontalOptions="FillAndExpand"
+                        SelectedIndexChanged="OnChangedEvent" 
+                        Grid.Column="2"
+                    />
+                </Grid>
+                <!--                </StackLayout>-->
             </StackLayout>
             <StackLayout VerticalOptions="End">
                 <BoxView BackgroundColor="Olive"
