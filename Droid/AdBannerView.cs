@@ -28,18 +28,12 @@ namespace Conversion.Droid
                 logger.Info($"screenLayout {screenlayout}");
 
                 adView = new AdView(Forms.Context);
-                adView.AdUnitId = Secrets.DroidAppId;
-                adView.AdSize = AdSize.Banner;
+                adView.AdUnitId = Secrets.DroidBannerId;
+                adView.AdSize = AdSize.SmartBanner;
 
                 adView.LoadAd(new AdRequest.Builder().AddTestDevice(Secrets.DroidTestRequestId).Build());
                 SetNativeControl(adView);
             }
-        }
-
-        private int ConvertPixelsToDp(float pixelValue)
-        {
-            var dp = (int)((pixelValue) / Resources.DisplayMetrics.Density);
-            return dp;
         }
     }
 }

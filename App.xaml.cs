@@ -23,11 +23,13 @@ namespace Conversion
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Views.MainPage())
+            NavigationPage page = new NavigationPage(new Views.MainPage());
+            if (Device.RuntimePlatform == Device.iOS)
             {
-                BarBackgroundColor = Color.FromHex("#f5f5f5"),
-                BarTextColor = Color.Black
-            };
+                page.BarBackgroundColor = Color.FromHex("#f5f5f5");
+            }
+
+            MainPage = page;
         }
 
         protected override void OnStart()
@@ -38,7 +40,7 @@ namespace Conversion
         protected override void OnSleep()
         {
             // Handle when your app sleeps
-        }
+        } 
 
         protected override void OnResume()
         {

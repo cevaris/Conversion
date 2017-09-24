@@ -82,7 +82,7 @@
                 </Grid>
             </StackLayout>
             <StackLayout VerticalOptions="End"
-                HeightRequest="100">
+                HeightRequest="50">
                 <!--<BoxView BackgroundColor="Olive"
                     HeightRequest="50" />-->
                 <local:PclAdBannerView />
