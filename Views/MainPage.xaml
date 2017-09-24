@@ -22,9 +22,12 @@
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="0"
+                                    <BoxView Grid.Row="0"
+                                        BackgroundColor="Aqua" />
+                                    <Label Grid.Column="1"
                                         Grid.Row="0"
                                         Text="{Binding Name}"
                                         VerticalOptions="Center" />
@@ -37,7 +40,7 @@
             <StackLayout VerticalOptions="End"
                 HeightRequest="50">
                 <BoxView HeightRequest="50"
-                    BackgroundColor="Green"
+                    BackgroundColor="Lime"
                     HorizontalOptions="FillAndExpand" />
                 <!--                <local:PclAdBannerView />-->
             </StackLayout>
