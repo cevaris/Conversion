@@ -23,31 +23,14 @@ namespace Conversion
         {
             InitializeComponent();
 
-            HeaderLabel.Text = unitGroup.ToString();
             SelectedUnitGroup = unitGroup;
+            Title = SelectedUnitGroup.ToString();
             UnitTypes = unitTypes;
 
             pickerLeft.ItemsSource = UnitTypes;
             pickerLeft.SelectedIndex = 0;
             pickerRight.ItemsSource = UnitTypes;
             pickerRight.SelectedIndex = 1;
-
-            int index = Units.UnitGroups.FindIndex(x => x == unitGroup);
-            if (index == 0)
-            {
-                HeaderLabelPrev.Text = "";
-                HeaderLabelNext.Text = $"{Units.UnitGroups[index + 1]} >";
-            }
-            else if (index == Units.UnitGroups.Count - 1)
-            {
-                HeaderLabelPrev.Text = $"< {Units.UnitGroups[index - 1]}";
-                HeaderLabelNext.Text = "";
-            }
-            else
-            {
-                HeaderLabelPrev.Text = $"< {Units.UnitGroups[index - 1]}";
-                HeaderLabelNext.Text = $"{Units.UnitGroups[index + 1]} >";
-            }
 
             NumLeft.Text = "1";
             recalculate();
@@ -73,31 +56,6 @@ namespace Conversion
                 pickerLeft.SelectedIndex = pickerRight.SelectedIndex;
                 pickerRight.SelectedIndex = tmp;
                 recalculate();
-            }
-
-            if (sender == HeaderLabelPrev || sender == HeaderLabelNext)
-            {
-                int index = Units.UnitGroups.FindIndex(x => x == SelectedUnitGroup);
-                UnitGroup? requestedUnitGroup = null;
-                if (sender == HeaderLabelPrev && !string.IsNullOrEmpty(HeaderLabelPrev.Text))
-                {
-                    requestedUnitGroup = Units.UnitGroups[index - 1];
-                }
-
-                if (sender == HeaderLabelNext && !string.IsNullOrEmpty(HeaderLabelNext.Text))
-                {
-                    requestedUnitGroup = Units.UnitGroups[index + 1];
-                }
-
-                if (requestedUnitGroup.HasValue)
-                {
-                    var message = new ScrollToUnitGroupMessage
-                    {
-                        SelectedItem = requestedUnitGroup.Value
-                    };
-                    message.Send(this);
-                }
-
             }
 
             if (sender == pickerLeft || sender == pickerRight)

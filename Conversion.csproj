@@ -32,7 +32,6 @@
     <EmbeddedResource Include="Views\UnitView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ConversionView.xaml" />
     <EmbeddedResource Include="Views\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -47,9 +46,6 @@
     <Compile Include="Source\Conversions.cs" />
     <Compile Include="Views\UnitView.xaml.cs">
       <DependentUpon>UnitView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ConversionView.xaml.cs">
-      <DependentUpon>ConversionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Source\Secrets.cs" />
     <Compile Include="PclAdBannerView.cs" />

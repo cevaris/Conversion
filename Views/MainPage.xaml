@@ -39,10 +39,10 @@
             </StackLayout>
             <StackLayout VerticalOptions="End"
                 HeightRequest="50">
-                <BoxView HeightRequest="50"
+                <!--<BoxView HeightRequest="50"
                     BackgroundColor="Lime"
-                    HorizontalOptions="FillAndExpand" />
-                <!--                <local:PclAdBannerView />-->
+                    HorizontalOptions="FillAndExpand" />-->
+                <local:PclAdBannerView />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -3,7 +3,6 @@
 [assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace Conversion
 {
-
     public partial class App : Application
     {
         public static bool IsDebug
@@ -24,9 +23,11 @@ namespace Conversion
         {
             InitializeComponent();
 
-            //MainPage = new Views.MainPage();
-            MainPage = new NavigationPage(new Views.MainPage());
-            //MainPage = new ConversionView();
+            MainPage = new NavigationPage(new Views.MainPage())
+            {
+                BarBackgroundColor = Color.FromHex("#f5f5f5"),
+                BarTextColor = Color.Black
+            };
         }
 
         protected override void OnStart()

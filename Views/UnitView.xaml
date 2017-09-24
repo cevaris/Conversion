@@ -4,39 +4,8 @@
     xmlns:local="clr-namespace:Conversion;assembly=Conversion"
     x:Class="Conversion.UnitPage"
     BackgroundColor="#f5f5f5">
-
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Orientation="Horizontal"
-                VerticalOptions="Start"
-                Margin="10,0,10,0">
-                <Label x:Name="HeaderLabelPrev"
-                    Text="&lt; UnitGroupPrev"
-                    HorizontalOptions="StartAndExpand"
-                    VerticalOptions="StartAndExpand"
-                    FontSize="Small">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnChangedEvent"
-                            NumberOfTapsRequired="1" />
-                    </Label.GestureRecognizers>
-                </Label>
-                <Label x:Name="HeaderLabel"
-                    Text="UnitGroup"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="End"
-                    FontAttributes="Bold"
-                    FontSize="Large" />
-                <Label x:Name="HeaderLabelNext"
-                    Text="UnitGroupNext &gt;"
-                    HorizontalOptions="EndAndExpand"
-                    VerticalOptions="StartAndExpand"
-                    FontSize="Small">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnChangedEvent"
-                            NumberOfTapsRequired="1" />
-                    </Label.GestureRecognizers>
-                </Label>
-            </StackLayout>
             <StackLayout Spacing="20"
                 Margin="10,0,10,0"
                 VerticalOptions="CenterAndExpand">
@@ -113,10 +82,10 @@
                 </Grid>
             </StackLayout>
             <StackLayout VerticalOptions="End"
-                HeightRequest="50">
-                <BoxView BackgroundColor="Olive"
-                    HeightRequest="50" />
-<!--                <local:PclAdBannerView />-->
+                HeightRequest="100">
+                <!--<BoxView BackgroundColor="Olive"
+                    HeightRequest="50" />-->
+                <local:PclAdBannerView />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
