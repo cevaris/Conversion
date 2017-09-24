@@ -2,16 +2,44 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Conversion;assembly=Conversion"
-    x:Class="Conversion.Views.MainPage">
+    x:Class="Conversion.Views.MainPage"
+    Title="Conversion">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+            iOS="0, 20, 0, 0" />
+    </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout VerticalOptions="StartAndExpand">
-                <BoxView BackgroundColor="Green"
-                    HeightRequest="50" />
+            <StackLayout VerticalOptions="FillAndExpand">
+                <ListView x:Name="UnitsList"
+                    ItemSelected="OnSelectedItem"
+                    RowHeight="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Margin="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0"
+                                        Grid.Row="0"
+                                        Text="{Binding Name}"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
             <StackLayout VerticalOptions="End"
                 HeightRequest="50">
-                <local:PclAdBannerView />
+                <BoxView HeightRequest="50"
+                    BackgroundColor="Green"
+                    HorizontalOptions="FillAndExpand" />
+                <!--                <local:PclAdBannerView />-->
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

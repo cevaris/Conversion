@@ -25,7 +25,8 @@ namespace Conversion
             InitializeComponent();
 
             //MainPage = new Views.MainPage();
-            MainPage = new ConversionView();
+            MainPage = new NavigationPage(new Views.MainPage());
+            //MainPage = new ConversionView();
         }
 
         protected override void OnStart()

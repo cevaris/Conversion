@@ -4,10 +4,7 @@
     xmlns:local="clr-namespace:Conversion;assembly=Conversion"
     x:Class="Conversion.UnitPage"
     BackgroundColor="#f5f5f5">
-    <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness"
-            iOS="0, 20, 0, 0" />
-    </ContentPage.Padding>
+
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Horizontal"
