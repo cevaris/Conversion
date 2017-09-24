@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Globalization;
+using Xamarin.Forms;
 
 [assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace Conversion
@@ -19,9 +20,22 @@ namespace Conversion
             }
         }
 
+        public static CultureInfo CurrentCultureInfo
+        {
+            get
+            {
+                //return new CultureInfo("es-ES");
+                return CultureInfo.DefaultThreadCurrentUICulture;
+            }
+        }
+
         public App()
         {
             InitializeComponent();
+
+            CultureInfo englishUSCulture = CurrentCultureInfo;
+            CultureInfo.DefaultThreadCurrentCulture = englishUSCulture;
+            CultureInfo.DefaultThreadCurrentUICulture = englishUSCulture;
 
             NavigationPage page = new NavigationPage(new Views.MainPage());
             if (Device.RuntimePlatform == Device.iOS)
@@ -40,7 +54,7 @@ namespace Conversion
         protected override void OnSleep()
         {
             // Handle when your app sleeps
-        } 
+        }
 
         protected override void OnResume()
         {

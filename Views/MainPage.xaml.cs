@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using Conversion.Models;
 using Xamarin.Forms;
 
@@ -15,6 +16,8 @@ namespace Conversion.Views
         public MainPage()
         {
             InitializeComponent();
+
+            logger.Info($"Getting the right stuff: {Resx.AppResources.temperature}");
 
             UnitGroupItemsSource = new ObservableCollection<UnitGroupModel>();
             foreach (UnitGroup unitGroup in Units.UnitMap.Keys)
