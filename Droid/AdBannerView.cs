@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Conversion.Droid;
 using Android.Gms.Ads;
 using Android.Content.Res;
-using Conversion;
+using Conversion.Views;
 
 [assembly: ExportRenderer(typeof(PclAdBannerView), typeof(AdBannerView))]
 namespace Conversion.Droid

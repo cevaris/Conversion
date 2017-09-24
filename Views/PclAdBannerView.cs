@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace Conversion
+namespace Conversion.Views
 {
     public class PclAdBannerView : View
     {

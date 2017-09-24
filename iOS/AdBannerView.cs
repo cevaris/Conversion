@@ -2,10 +2,9 @@
 using Xamarin.Forms;
 using Google.MobileAds;
 using UIKit;
-using Conversion;
 using CoreGraphics;
 
-[assembly: ExportRenderer(typeof(PclAdBannerView), typeof(Conversion.iOS.AdBannerView))]
+[assembly: ExportRenderer(typeof(Conversion.Views.PclAdBannerView), typeof(Conversion.iOS.AdBannerView))]
 namespace Conversion.iOS
 {
     public class AdBannerView : ViewRenderer
