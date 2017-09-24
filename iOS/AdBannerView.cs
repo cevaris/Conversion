@@ -2,24 +2,21 @@
 using Xamarin.Forms;
 using Google.MobileAds;
 using UIKit;
-using CoreGraphics;
 using Conversion;
-using Conversion.iOS;
+using CoreGraphics;
 
-[assembly: ExportRenderer(typeof(AdBannerView), typeof(PclAdBannerView))]
+[assembly: ExportRenderer(typeof(PclAdBannerView), typeof(Conversion.iOS.AdBannerView))]
 namespace Conversion.iOS
 {
     public class AdBannerView : ViewRenderer
     {
         BannerView adView;
         bool viewOnScreen = false;
-        private static ILogger logger = new ConsoleLogger(nameof(AdBannerView));
+        private readonly static ILogger logger = new ConsoleLogger(nameof(AdBannerView));
 
         protected override void OnElementChanged(ElementChangedEventArgs<View> e)
         {
             base.OnElementChanged(e);
-
-            logger.Info("AdBannerView is being called");
 
             if (e.NewElement == null)
                 return;
@@ -36,18 +33,14 @@ namespace Conversion.iOS
                     }
                 }
 
-                string bannerId = Secrets.IOSBannerId;
-                if (App.IsDebug)
-                {
-                    bannerId = Secrets.TestBannerId;
-                }
+                logger.Info($"found root controller {viewCtrl.ToString()}");
 
                 adView = new BannerView(
                     size: AdSizeCons.Banner,
                     origin: new CGPoint(0, UIScreen.MainScreen.Bounds.Size.Height - AdSizeCons.Banner.Size.Height)
                 )
                 {
-                    AdUnitID = bannerId,
+                    AdUnitID = Secrets.IOSBannerId,
                     RootViewController = viewCtrl
                 };
 

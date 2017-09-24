@@ -16,13 +16,7 @@ namespace Conversion
 
     public enum UnitType
     {
-        Celsius,
-        Fahrenheit,
-        Kelvin,
-        Reaumur,
-        Newton,
-        Rankine,
-
+        // Distance
         Kilometer,
         Meter,
         Kecimeter,
@@ -32,8 +26,30 @@ namespace Conversion
         Inch,
         Foot,
         Yard,
-        NauticalMile
+        NauticalMile,
 
+        // Temperature
+        Celsius,
+        Fahrenheit,
+        Kelvin,
+        Reaumur,
+        Newton,
+        Rankine,
+
+        // Time
+        Year,
+        Quarter,
+        Month,
+        Week,
+        Day,
+        Hour,
+        Minute,
+        Second,
+        Millisecond,
+        Microsecond,
+        Picosecond,
+        Femtosecond,
+        Attosecond
     }
 
     class Units
@@ -41,7 +57,7 @@ namespace Conversion
         public static List<UnitGroup> UnitGroups = Enum.GetValues(typeof(UnitGroup))
                                                        .Cast<UnitGroup>()
                                                        .ToList();
-       
+
         public static List<UnitType> TemperatureOpts = new List<UnitType>
         {
             UnitType.Celsius,
@@ -64,6 +80,33 @@ namespace Conversion
             UnitType.Foot,
             UnitType.Yard,
             UnitType.NauticalMile
+        };
+
+        public static List<UnitType> TimeOpts = new List<UnitType>
+        {
+            UnitType.Year,
+            UnitType.Quarter,
+            UnitType.Month,
+            UnitType.Week,
+            UnitType.Day,
+            UnitType.Hour,
+            UnitType.Minute,
+            UnitType.Second,
+            UnitType.Millisecond,
+            UnitType.Microsecond,
+            UnitType.Picosecond,
+            UnitType.Femtosecond,
+            UnitType.Attosecond
+        };
+
+        public static IDictionary<UnitGroup, List<UnitType>> UnitMap = new SortedDictionary<UnitGroup, List<UnitType>>()
+        {
+            {UnitGroup.Data, TemperatureOpts},
+            {UnitGroup.Distance, DistanceOpts},
+            {UnitGroup.Speed, TemperatureOpts},
+            {UnitGroup.Temperature, TemperatureOpts},
+            {UnitGroup.Time, TimeOpts},
+            {UnitGroup.Weight, TemperatureOpts},
         };
 
     }

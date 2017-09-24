@@ -83,7 +83,6 @@
                         BackgroundColor="Gray"
                         HorizontalOptions="Center" />
                 </StackLayout>
-                <!--                <StackLayout Orientation="Horizontal">-->
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -114,12 +113,12 @@
                         SelectedIndexChanged="OnChangedEvent"
                         Grid.Column="2" />
                 </Grid>
-                <!--                </StackLayout>-->
             </StackLayout>
-            <StackLayout VerticalOptions="End">
-                <BoxView BackgroundColor="Olive"
-                    HeightRequest="50" />
-                <!--<local:PclAdBannerView />-->
+            <StackLayout VerticalOptions="End"
+                HeightRequest="50">
+                <!--<BoxView BackgroundColor="Olive"
+                    HeightRequest="50" />-->
+                <local:PclAdBannerView />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

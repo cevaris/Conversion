@@ -13,9 +13,8 @@ namespace Conversion.iOS
     {
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
             MobileAds.Configure(Secrets.IOSAppId);
-
+            global::Xamarin.Forms.Forms.Init();
 
             LoadApplication(new App());
 

@@ -2,7 +2,7 @@
 
 namespace Conversion
 {
-    public class PclAdBannerView : ContentView
+    public class PclAdBannerView : View
     {
     }
 }

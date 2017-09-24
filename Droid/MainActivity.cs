@@ -1,5 +1,6 @@
 ﻿using System;
 
+using Android.Gms.Ads;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -20,6 +21,7 @@ namespace Conversion.Droid
 
             base.OnCreate(bundle);
 
+            MobileAds.Initialize(ApplicationContext, Secrets.DroidAppId);
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             LoadApplication(new App());

@@ -24,6 +24,7 @@ namespace Conversion
         {
             InitializeComponent();
 
+            //MainPage = new Views.MainPage();
             MainPage = new ConversionView();
         }
 
