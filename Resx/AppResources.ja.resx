@@ -117,54 +117,54 @@
 	<resheader name="writer">
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
-	<!-- Unit Groups -->
+	<!-- UnitGroups  -->
 	<data name="temperature" xml:space="preserve">
-        <value>temperature</value>
+		<value>温度</value>
     </data>
 	<data name="data" xml:space="preserve">
-        <value>data</value>
+        <value>データ</value>
     </data>
 	<data name="distance" xml:space="preserve">
-        <value>distance</value>
+        <value>距離</value>
     </data>
 	<data name="time" xml:space="preserve">
-        <value>time</value>
+        <value>時間</value>
     </data>
 	<data name="speed" xml:space="preserve">
-        <value>speed</value>
+        <value>速度</value>
     </data>
 	<data name="weight" xml:space="preserve">
-        <value>weight</value>
+        <value>重量</value>
     </data>
 	<!-- Data -->
-	<data name="bit" xml:space="preserve">
-        <value>Bit</value>
+    <data name="bit" xml:space="preserve">
+        <value>ビット</value>
     </data>
-	<data name="byte" xml:space="preserve">
+    <data name="byte" xml:space="preserve">
         <value>Byte</value>
     </data>
-	<data name="kilobyte" xml:space="preserve">
-        <value>Kilobyte</value>
+    <data name="kilobyte" xml:space="preserve">
+        <value>キロバイト</value>
     </data>
-	<data name="megabyte" xml:space="preserve">
-        <value>Megabyte</value>
+    <data name="megabyte" xml:space="preserve">
+        <value>メガバイト</value>
     </data>
-	<data name="gigabyte" xml:space="preserve">
-        <value>Gigabyte</value>
+    <data name="gigabyte" xml:space="preserve">
+        <value>ギガバイト</value>
     </data>
-	<data name="terabyte" xml:space="preserve">
-        <value>Terabyte</value>
+    <data name="terabyte" xml:space="preserve">
+        <value>テラバイト</value>
     </data>
-	<data name="petabyte" xml:space="preserve">
-        <value>Petabyte</value>
+    <data name="petabyte" xml:space="preserve">
+        <value>ペタバイト</value>
     </data>
-	<data name="exabyte" xml:space="preserve">
-        <value>Exabyte</value>
+    <data name="exabyte" xml:space="preserve">
+        <value>エクサバイト</value>
     </data>
-	<data name="zettabyte" xml:space="preserve">
-        <value>Zettabyte</value>
+    <data name="zettabyte" xml:space="preserve">
+        <value>ゼタバイト</value>
     </data>
-	<data name="yottabyte" xml:space="preserve">
-        <value>Yottabyte</value>
+    <data name="yottabyte" xml:space="preserve">
+        <value>ヨッタバイト</value>
     </data>
 </root>

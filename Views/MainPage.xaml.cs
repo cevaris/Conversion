@@ -25,7 +25,7 @@ namespace Conversion.Views
                 UnitGroupItemsSource.Add(new UnitGroupModel
                 {
                     UnitGroup = unitGroup,
-                    Name = unitGroup.ToString()
+                    Name = Units.T(unitGroup)
                 });
             }
 

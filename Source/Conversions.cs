@@ -22,7 +22,7 @@ namespace Conversion
 
         public Double Convert(UnitGroup g, UnitType a, UnitType b, Double x)
         {
-            if (Funcs.TryGetValue(Conversions.Key(UnitGroup.Temperature, a, b), out Func<Double, Double> conversion))
+            if (Funcs.TryGetValue(Conversions.Key(g, a, b), out Func<Double, Double> conversion))
             {
                 return conversion(x);
             }
@@ -54,6 +54,9 @@ namespace Conversion
             x.Add(Key(UnitGroup.Temperature, UnitType.Kelvin, UnitType.Kelvin), identity);
             x.Add(Key(UnitGroup.Temperature, UnitType.Kelvin, UnitType.Rankine), (a) => a * (9.0 / 5.0));
             x.Add(Key(UnitGroup.Temperature, UnitType.Kelvin, UnitType.Reaumur), (a) => (a - 273.15) * (4.0 / 5.0));
+
+            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Byte), (a) => a / 8.0);
+            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Bit), (a) => a * 8);
 
             return x;
         }

@@ -24,8 +24,9 @@ namespace Conversion
         {
             get
             {
-                //return new CultureInfo("es-ES");
-                return CultureInfo.DefaultThreadCurrentUICulture;
+                return new CultureInfo("ja-JP");
+                //return new CultureInfo("es");
+                //return CultureInfo.DefaultThreadCurrentUICulture;
             }
         }
 

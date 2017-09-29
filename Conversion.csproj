@@ -43,6 +43,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.es.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resx\AppResources.ja.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.ja.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -67,6 +71,9 @@
     </Compile>
     <Compile Include="Resx\AppResources.es.Designer.cs">
       <DependentUpon>AppResources.es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resx\AppResources.ja.Designer.cs">
+      <DependentUpon>AppResources.ja.resx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

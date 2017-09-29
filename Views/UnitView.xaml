@@ -83,9 +83,9 @@
             </StackLayout>
             <StackLayout VerticalOptions="End"
                 HeightRequest="50">
-                <!--<BoxView BackgroundColor="Olive"
-                    HeightRequest="50" />-->
-                <local:PclAdBannerView />
+                <BoxView BackgroundColor="Olive"
+                    HeightRequest="50" />
+<!--                <local:PclAdBannerView />-->
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

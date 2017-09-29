@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace Conversion
@@ -24,12 +26,12 @@ namespace Conversion
             InitializeComponent();
 
             SelectedUnitGroup = unitGroup;
-            Title = SelectedUnitGroup.ToString();
+            Title = Units.T(SelectedUnitGroup);
             UnitTypes = unitTypes;
 
-            pickerLeft.ItemsSource = UnitTypes;
+            pickerLeft.ItemsSource = UnitTypes.Select(x => $"{Units.T(x)} ({Units.TAbbr(x)})").ToList();
             pickerLeft.SelectedIndex = 0;
-            pickerRight.ItemsSource = UnitTypes;
+            pickerRight.ItemsSource = UnitTypes.Select(x => $"{Units.T(x)} ({Units.TAbbr(x)})").ToList();
             pickerRight.SelectedIndex = 1;
 
             NumLeft.Text = "1";
@@ -41,11 +43,13 @@ namespace Conversion
             UnitType typeLeft = UnitTypes[pickerLeft.SelectedIndex];
             UnitType typeRight = UnitTypes[pickerRight.SelectedIndex];
 
-            Double result = conversions.Convert(SelectedUnitGroup, typeLeft, typeRight, Convert.ToDouble(NumLeft.Text));
+            Double input = Convert.ToDouble(NumLeft.Text);
+            logger.Info($"parsed value: {input}");
+            Double result = conversions.Convert(SelectedUnitGroup, typeLeft, typeRight, input);
             NumRight.Text = Math.Round(result, 6).ToString();
 
-            //ResultInput.Text = typeLeft.ToString();
-            //ResultOutput.Text = typeRight.ToString();
+            ResultInput.Text = Units.TAbbr(typeLeft);
+            ResultOutput.Text = Units.TAbbr(typeRight);
         }
 
         void OnChangedEvent(object sender, System.EventArgs e)
@@ -60,8 +64,8 @@ namespace Conversion
 
             if (sender == pickerLeft || sender == pickerRight)
             {
-                Picker picker = sender as Picker;
-                if (picker.SelectedIndex > 0)
+                logger.Info($"{pickerLeft.SelectedIndex} - {pickerRight.SelectedIndex}");
+                if (pickerLeft.SelectedIndex >= 0 && pickerRight.SelectedIndex >= 0)
                 {
                     recalculate();
                 }
