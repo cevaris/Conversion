@@ -79,7 +79,28 @@ namespace Conversion
             x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Yottabyte), (a) => a / 8.0 / YOTTA);
 
             x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Bit), (a) => a * 8.0);
+            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Byte), identity);
+            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Kilobyte), (a) => a / KILO);
+            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Megabyte), (a) => a / MEGA);
+            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Gigabyte), (a) => a / GIGA);
+            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Terabyte), (a) => a / TERA);
+            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Petabyte), (a) => a / PETA);
+            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Exabyte), (a) => a / EXA);
+            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Zettabyte), (a) => a / ZETTA);
             x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Yottabyte), (a) => a / YOTTA);
+
+            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Bit), (a) => a * 8.0 * KILO);
+            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Byte), (a) => a * KILO);
+            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Kilobyte), identity);
+            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Megabyte), (a) => a * KILO / MEGA);
+            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Gigabyte), (a) => a * KILO / GIGA);
+            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Terabyte), (a) => a * KILO / TERA);
+            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Petabyte), (a) => a * KILO / PETA);
+            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Exabyte), (a) => a * KILO / EXA);
+            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Zettabyte), (a) => a * KILO / ZETTA);
+            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Yottabyte), (a) => a * KILO / YOTTA);
+
+
 
             x.Add(Key(UnitGroup.Data, UnitType.Gigabyte, UnitType.Bit), (a) => a * 8.0 * YOTTA);
 
