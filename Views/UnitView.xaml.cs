@@ -46,7 +46,8 @@ namespace Conversion
             Double input = Convert.ToDouble(NumLeft.Text);
             logger.Info($"parsed value: {input}");
             Double result = conversions.Convert(SelectedUnitGroup, typeLeft, typeRight, input);
-            NumRight.Text = Math.Round(result, 6).ToString();
+            //NumRight.Text = Math.Round(result, 6).ToString();
+            NumRight.Text = result.ToString();
 
             ResultInput.Text = Units.TAbbr(typeLeft);
             ResultOutput.Text = Units.TAbbr(typeRight);
