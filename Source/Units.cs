@@ -18,17 +18,32 @@ namespace Conversion
     public enum UnitType
     {
         // Data
-        Bit,
-        Byte,
-        Kilobyte,
-        Megabyte,
-        Gigabyte,
-        Terabyte,
-        Petabyte,
-        Exabyte,
-        Zettabyte,
-        Yottabyte,
-
+        bit,      // 1 bit
+        _byte,     // 8 bits
+        kilobit,  // 1000 bits
+        kibibit,  // 1024 bits
+        kilobyte, // 1000 bytes
+        kibibyte, // 1024 bytes
+        megabit,
+        mebibit,
+        megabyte,
+        mebibyte,
+        gigabit,
+        gibibit,
+        gigabyte,
+        gibibyte,
+        terabit,
+        tebibit,
+        terabyte,
+        tebibyte,
+        petabit,
+        pebibit,
+        petabyte,
+        pebibyte,
+        exabit,
+        exbibit,
+        exabyte,
+        exbibyte,
 
         // Distance
         Kilometer,
@@ -72,18 +87,39 @@ namespace Conversion
         public static List<UnitGroup> UnitGroups = Enum.GetValues(typeof(UnitGroup))
                                                        .Cast<UnitGroup>()
                                                        .ToList();
+
         public static List<UnitType> DataOpts = new List<UnitType>()
         {
-            UnitType.Bit,
-            UnitType.Byte,
-            UnitType.Kilobyte,
-            UnitType.Megabyte,
-            UnitType.Gigabyte,
-            UnitType.Terabyte,
-            UnitType.Petabyte,
-            UnitType.Exabyte,
-            UnitType.Zettabyte,
-            UnitType.Yottabyte,
+            UnitType.bit,
+            UnitType._byte,
+
+            UnitType.kilobit,
+            UnitType.megabit,
+            UnitType.gigabit,
+            UnitType.terabit,
+            UnitType.petabit,
+            UnitType.exabit,
+
+            UnitType.kibibit,
+            UnitType.mebibit,
+            UnitType.gibibit,
+            UnitType.tebibit,
+            UnitType.pebibit,
+            UnitType.exbibit,
+
+            UnitType.kilobyte,
+            UnitType.megabyte,
+            UnitType.gigabyte,
+            UnitType.terabyte,
+            UnitType.petabyte,
+            UnitType.exabyte,
+
+            UnitType.kibibyte,
+            UnitType.mebibyte,
+            UnitType.gibibyte,
+            UnitType.tebibyte,
+            UnitType.pebibyte,
+            UnitType.exbibyte,
         };
 
         public static List<UnitType> TemperatureOpts = new List<UnitType>
@@ -139,30 +175,48 @@ namespace Conversion
 
         public static IDictionary<UnitType, string> UnitTypeNameMap = new Dictionary<UnitType, string>()
         {
-            {UnitType.Bit, AppResources.bit},
-            {UnitType.Byte, AppResources._byte},
-            {UnitType.Kilobyte, AppResources.kilobyte},
-            {UnitType.Megabyte, AppResources.megabyte},
-            {UnitType.Gigabyte, AppResources.gigabyte},
-            {UnitType.Terabyte, AppResources.terabyte},
-            {UnitType.Petabyte, AppResources.petabyte},
-            {UnitType.Exabyte, AppResources.exabyte},
-            {UnitType.Zettabyte, AppResources.zettabyte},
-            {UnitType.Yottabyte, AppResources.yottabyte},
+            {UnitType.bit, AppResources.bit},
+            {UnitType._byte, AppResources._byte},
+            {UnitType.kilobyte, AppResources.kilobyte},
+            {UnitType.megabyte, AppResources.megabyte},
+            {UnitType.gigabyte, AppResources.gigabyte},
+            {UnitType.terabyte, AppResources.terabyte},
+            {UnitType.petabyte, AppResources.petabyte},
+            {UnitType.exabyte, AppResources.exabyte},
         };
 
         public static IDictionary<UnitType, string> UnitTypeAbbrNameMap = new Dictionary<UnitType, string>()
         {
-            {UnitType.Bit, "b"},
-            {UnitType.Byte, "B"},
-            {UnitType.Kilobyte, "kB"},
-            {UnitType.Megabyte, "MB"},
-            {UnitType.Gigabyte, "GB"},
-            {UnitType.Terabyte, "TB"},
-            {UnitType.Petabyte, "PB"},
-            {UnitType.Exabyte, "EB"},
-            {UnitType.Zettabyte, "ZB"},
-            {UnitType.Yottabyte, "YB"},
+            {UnitType.bit, "b"},
+            {UnitType._byte, "B"},
+
+            {UnitType.kilobit, "kib"},
+            {UnitType.megabit, "Mb"},
+            {UnitType.gigabit, "Gb"},
+            {UnitType.terabit, "Tb"},
+            {UnitType.petabit, "Pb"},
+            {UnitType.exabit, "Eb"},
+
+            {UnitType.kibibit, "Kib"},
+            {UnitType.mebibit, "Mib"},
+            {UnitType.gibibit, "Gib"},
+            {UnitType.tebibit, "Tib"},
+            {UnitType.pebibit, "Pib"},
+            {UnitType.exbibit, "Exb"},
+
+            {UnitType.kilobyte, "kB"},
+            {UnitType.megabyte, "MB"},
+            {UnitType.gigabyte, "GB"},
+            {UnitType.terabyte, "TB"},
+            {UnitType.petabyte, "PB"},
+            {UnitType.exabyte, "EB"},
+
+            {UnitType.kibibyte, "KiB"},
+            {UnitType.mebibyte, "MiB"},
+            {UnitType.gibibyte, "GiB"},
+            {UnitType.tebibyte, "TiB"},
+            {UnitType.pebibyte, "PiB"},
+            {UnitType.exbibyte, "EiB"},
         };
 
         public static IDictionary<UnitGroup, List<UnitType>> UnitMap = new SortedDictionary<UnitGroup, List<UnitType>>()

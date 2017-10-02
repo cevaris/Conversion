@@ -137,34 +137,82 @@
         <value>重量</value>
     </data>
 	<!-- Data -->
-    <data name="bit" xml:space="preserve">
+	<data name="bit" xml:space="preserve">
         <value>ビット</value>
     </data>
-    <data name="byte" xml:space="preserve">
-        <value>Byte</value>
+	<data name="byte" xml:space="preserve">
+        <value>byte</value>
     </data>
-    <data name="kilobyte" xml:space="preserve">
+	<data name="kilobit" xml:space="preserve">
+        <value>kilobit</value>
+    </data>
+	<data name="kibibit" xml:space="preserve">
+        <value>kibibit</value>
+    </data>
+	<data name="kilobyte" xml:space="preserve">
         <value>キロバイト</value>
     </data>
-    <data name="megabyte" xml:space="preserve">
+	<data name="kibibyte" xml:space="preserve">
+        <value>kibibyte</value>
+    </data>
+	<data name="megabit" xml:space="preserve">
+        <value>megabit</value>
+    </data>
+	<data name="mebibit" xml:space="preserve">
+        <value>mebibit</value>
+    </data>
+	<data name="megabyte" xml:space="preserve">
         <value>メガバイト</value>
     </data>
-    <data name="gigabyte" xml:space="preserve">
+	<data name="mebibyte" xml:space="preserve">
+        <value>mebibyte</value>
+    </data>
+	<data name="gigabit" xml:space="preserve">
+        <value>gigabit</value>
+    </data>
+	<data name="gibibit" xml:space="preserve">
+        <value>gibibit</value>
+    </data>
+	<data name="gigabyte" xml:space="preserve">
         <value>ギガバイト</value>
     </data>
-    <data name="terabyte" xml:space="preserve">
+	<data name="gibibyte" xml:space="preserve">
+        <value>gibibyte</value>
+    </data>
+	<data name="terabit" xml:space="preserve">
+        <value>terabit</value>
+    </data>
+	<data name="tebibit" xml:space="preserve">
+        <value>tebibit</value>
+    </data>
+	<data name="terabyte" xml:space="preserve">
         <value>テラバイト</value>
     </data>
-    <data name="petabyte" xml:space="preserve">
+	<data name="tebibyte" xml:space="preserve">
+        <value>tebibyte</value>
+    </data>
+	<data name="petabit" xml:space="preserve">
+        <value>petabit</value>
+    </data>
+	<data name="pebibit" xml:space="preserve">
+        <value>pebibit</value>
+    </data>
+	<data name="petabyte" xml:space="preserve">
         <value>ペタバイト</value>
     </data>
-    <data name="exabyte" xml:space="preserve">
+	<data name="pebibyte" xml:space="preserve">
+        <value></value>
+    </data>
+	<data name="exabit" xml:space="preserve">
+        <value>exabit</value>
+    </data>
+	<data name="exbibit" xml:space="preserve">
+        <value>exbibit</value>
+    </data>
+	<data name="exabyte" xml:space="preserve">
         <value>エクサバイト</value>
     </data>
-    <data name="zettabyte" xml:space="preserve">
-        <value>ゼタバイト</value>
-    </data>
-    <data name="yottabyte" xml:space="preserve">
-        <value>ヨッタバイト</value>
+	<data name="exbibyte" xml:space="preserve">
+        <value>exbibyte</value>
     </data>
 </root>

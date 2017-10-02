@@ -95,9 +95,39 @@ namespace Conversion.Resx {
             }
         }
         
+        internal static string kilobit {
+            get {
+                return ResourceManager.GetString("kilobit", resourceCulture);
+            }
+        }
+        
+        internal static string kibibit {
+            get {
+                return ResourceManager.GetString("kibibit", resourceCulture);
+            }
+        }
+        
         internal static string kilobyte {
             get {
                 return ResourceManager.GetString("kilobyte", resourceCulture);
+            }
+        }
+        
+        internal static string kibibyte {
+            get {
+                return ResourceManager.GetString("kibibyte", resourceCulture);
+            }
+        }
+        
+        internal static string megabit {
+            get {
+                return ResourceManager.GetString("megabit", resourceCulture);
+            }
+        }
+        
+        internal static string mebibit {
+            get {
+                return ResourceManager.GetString("mebibit", resourceCulture);
             }
         }
         
@@ -107,9 +137,45 @@ namespace Conversion.Resx {
             }
         }
         
+        internal static string mebibyte {
+            get {
+                return ResourceManager.GetString("mebibyte", resourceCulture);
+            }
+        }
+        
+        internal static string gigabit {
+            get {
+                return ResourceManager.GetString("gigabit", resourceCulture);
+            }
+        }
+        
+        internal static string gibibit {
+            get {
+                return ResourceManager.GetString("gibibit", resourceCulture);
+            }
+        }
+        
         internal static string gigabyte {
             get {
                 return ResourceManager.GetString("gigabyte", resourceCulture);
+            }
+        }
+        
+        internal static string gibibyte {
+            get {
+                return ResourceManager.GetString("gibibyte", resourceCulture);
+            }
+        }
+        
+        internal static string terabit {
+            get {
+                return ResourceManager.GetString("terabit", resourceCulture);
+            }
+        }
+        
+        internal static string tebibit {
+            get {
+                return ResourceManager.GetString("tebibit", resourceCulture);
             }
         }
         
@@ -119,9 +185,45 @@ namespace Conversion.Resx {
             }
         }
         
+        internal static string tebibyte {
+            get {
+                return ResourceManager.GetString("tebibyte", resourceCulture);
+            }
+        }
+        
+        internal static string petabit {
+            get {
+                return ResourceManager.GetString("petabit", resourceCulture);
+            }
+        }
+        
+        internal static string pebibit {
+            get {
+                return ResourceManager.GetString("pebibit", resourceCulture);
+            }
+        }
+        
         internal static string petabyte {
             get {
                 return ResourceManager.GetString("petabyte", resourceCulture);
+            }
+        }
+        
+        internal static string pebibyte {
+            get {
+                return ResourceManager.GetString("pebibyte", resourceCulture);
+            }
+        }
+        
+        internal static string exabit {
+            get {
+                return ResourceManager.GetString("exabit", resourceCulture);
+            }
+        }
+        
+        internal static string exbibit {
+            get {
+                return ResourceManager.GetString("exbibit", resourceCulture);
             }
         }
         
@@ -131,15 +233,9 @@ namespace Conversion.Resx {
             }
         }
         
-        internal static string zettabyte {
+        internal static string exbibyte {
             get {
-                return ResourceManager.GetString("zettabyte", resourceCulture);
-            }
-        }
-        
-        internal static string yottabyte {
-            get {
-                return ResourceManager.GetString("yottabyte", resourceCulture);
+                return ResourceManager.GetString("exbibyte", resourceCulture);
             }
         }
     }

@@ -13,8 +13,13 @@ namespace Conversion
         const double TERA = GIGA * 1000;
         const double PETA = TERA * 1000;
         const double EXA = PETA * 1000;
-        const double ZETTA = EXA * 1000;
-        const double YOTTA = ZETTA * 1000;
+
+        const double KIBI = 1024;
+        const double MEBI = KIBI * 1024;
+        const double GIBI = MEBI * 1024;
+        const double TEBI = GIBI * 1024;
+        const double PEBI = TEBI * 1024;
+        const double EXBI = PEBI * 1024;
 
         private static Conversions instance;
         public static Conversions Instance
@@ -67,46 +72,32 @@ namespace Conversion
             x.Add(Key(UnitGroup.Temperature, UnitType.Kelvin, UnitType.Reaumur), (a) => (a - 273.15) * (4.0 / 5.0));
 
             // Data
-            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Bit), identity);
-            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Byte), (a) => a / 8.0);
-            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Kilobyte), (a) => a / 8.0 / KILO);
-            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Megabyte), (a) => a / 8.0 / MEGA);
-            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Gigabyte), (a) => a / 8.0 / GIGA);
-            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Terabyte), (a) => a / 8.0 / TERA);
-            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Petabyte), (a) => a / 8.0 / PETA);
-            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Exabyte), (a) => a / 8.0 / EXA);
-            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Zettabyte), (a) => a / 8.0 / ZETTA);
-            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Yottabyte), (a) => a / 8.0 / YOTTA);
+            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.bit), identity);
+            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType._byte), (a) => a / 8.0);
+            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.kilobyte), (a) => a / 8.0 / KILO);
+            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.megabyte), (a) => a / 8.0 / MEGA);
+            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.gigabyte), (a) => a / 8.0 / GIGA);
+            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.terabyte), (a) => a / 8.0 / TERA);
+            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.petabyte), (a) => a / 8.0 / PETA);
+            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.exabyte), (a) => a / 8.0 / EXA);
 
-            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Bit), (a) => a * 8.0);
-            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Byte), identity);
-            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Kilobyte), (a) => a / KILO);
-            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Megabyte), (a) => a / MEGA);
-            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Gigabyte), (a) => a / GIGA);
-            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Terabyte), (a) => a / TERA);
-            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Petabyte), (a) => a / PETA);
-            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Exabyte), (a) => a / EXA);
-            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Zettabyte), (a) => a / ZETTA);
-            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Yottabyte), (a) => a / YOTTA);
+            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.bit), (a) => a * 8.0);
+            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType._byte), identity);
+            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.kilobyte), (a) => a / KILO);
+            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.megabyte), (a) => a / MEGA);
+            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.gigabyte), (a) => a / GIGA);
+            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.terabyte), (a) => a / TERA);
+            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.petabyte), (a) => a / PETA);
+            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.exabyte), (a) => a / EXA);
 
-            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Bit), (a) => a * 8.0 * KILO);
-            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Byte), (a) => a * KILO);
-            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Kilobyte), identity);
-            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Megabyte), (a) => a * KILO / MEGA);
-            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Gigabyte), (a) => a * KILO / GIGA);
-            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Terabyte), (a) => a * KILO / TERA);
-            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Petabyte), (a) => a * KILO / PETA);
-            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Exabyte), (a) => a * KILO / EXA);
-            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Zettabyte), (a) => a * KILO / ZETTA);
-            x.Add(Key(UnitGroup.Data, UnitType.Kilobyte, UnitType.Yottabyte), (a) => a * KILO / YOTTA);
-
-
-
-            x.Add(Key(UnitGroup.Data, UnitType.Gigabyte, UnitType.Bit), (a) => a * 8.0 * YOTTA);
-
-            x.Add(Key(UnitGroup.Data, UnitType.Yottabyte, UnitType.Bit), (a) => a * 8.0 * YOTTA);
-            x.Add(Key(UnitGroup.Data, UnitType.Yottabyte, UnitType.Byte), (a) => a / YOTTA);
-
+            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.bit), (a) => a * 8.0 * KILO);
+            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType._byte), (a) => a * KILO);
+            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.kilobyte), identity);
+            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.megabyte), (a) => a * KILO / MEGA);
+            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.gigabyte), (a) => a * KILO / GIGA);
+            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.terabyte), (a) => a * KILO / TERA);
+            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.petabyte), (a) => a * KILO / PETA);
+            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.exabyte), (a) => a * KILO / EXA);
 
             return x;
         }
