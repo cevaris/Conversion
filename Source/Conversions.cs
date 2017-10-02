@@ -67,8 +67,15 @@ namespace Conversion
             x.Add(Key(UnitGroup.Temperature, UnitType.Kelvin, UnitType.Reaumur), (a) => (a - 273.15) * (4.0 / 5.0));
 
             // Data
+            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Bit), identity);
             x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Byte), (a) => a / 8.0);
+            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Kilobyte), (a) => a / 8.0 / KILO);
+            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Megabyte), (a) => a / 8.0 / MEGA);
             x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Gigabyte), (a) => a / 8.0 / GIGA);
+            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Terabyte), (a) => a / 8.0 / TERA);
+            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Petabyte), (a) => a / 8.0 / PETA);
+            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Exabyte), (a) => a / 8.0 / EXA);
+            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Zettabyte), (a) => a / 8.0 / ZETTA);
             x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Yottabyte), (a) => a / 8.0 / YOTTA);
 
             x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Bit), (a) => a * 8.0);
