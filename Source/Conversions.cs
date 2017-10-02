@@ -7,8 +7,14 @@ namespace Conversion
     {
         ILogger logger = new ConsoleLogger(nameof(Conversions));
 
-        readonly static double giga = Math.Pow(1000, 3);
-        readonly static double yotta = Math.Pow(1000, 8);
+        const double KILO = 1000;
+        const double MEGA = KILO * 1000;
+        const double GIGA = MEGA * 1000;
+        const double TERA = GIGA * 1000;
+        const double PETA = TERA * 1000;
+        const double EXA = PETA * 1000;
+        const double ZETTA = EXA * 1000;
+        const double YOTTA = ZETTA * 1000;
 
         private static Conversions instance;
         public static Conversions Instance
@@ -23,15 +29,16 @@ namespace Conversion
             }
         }
 
-        public Double Convert(UnitGroup g, UnitType a, UnitType b, Double x)
+        public Double Convert(UnitGroup g, UnitType inUnit, UnitType outUnit, Double x)
         {
-            if (Funcs.TryGetValue(Conversions.Key(g, a, b), out Func<Double, Double> conversion))
+            if (Funcs.TryGetValue(Conversions.Key(g, inUnit, outUnit), out Func<Double, Double> conversion))
             {
+                logger.Info($"looking up conversion: {g}:{inUnit}:{outUnit}");
                 return conversion(x);
             }
             else
             {
-                logger.Error($"no conversion func found  for {g}:{a}:{b}");
+                logger.Error($"no conversion func found for: {g}:{inUnit}:{outUnit}");
                 return identity(x);
             }
         }
@@ -61,16 +68,16 @@ namespace Conversion
 
             // Data
             x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Byte), (a) => a / 8.0);
-            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Gigabyte), (a) => a / 8.0 / giga);
-            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Yottabyte), (a) => a / 8.0 / yotta);
+            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Gigabyte), (a) => a / 8.0 / GIGA);
+            x.Add(Key(UnitGroup.Data, UnitType.Bit, UnitType.Yottabyte), (a) => a / 8.0 / YOTTA);
 
             x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Bit), (a) => a * 8.0);
-            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Yottabyte), (a) => a / yotta);
+            x.Add(Key(UnitGroup.Data, UnitType.Byte, UnitType.Yottabyte), (a) => a / YOTTA);
 
-            x.Add(Key(UnitGroup.Data, UnitType.Gigabyte, UnitType.Bit), (a) => a * 8.0 * giga);
+            x.Add(Key(UnitGroup.Data, UnitType.Gigabyte, UnitType.Bit), (a) => a * 8.0 * YOTTA);
 
-            x.Add(Key(UnitGroup.Data, UnitType.Yottabyte, UnitType.Bit), (a) => a * 8.0 * yotta);
-            x.Add(Key(UnitGroup.Data, UnitType.Yottabyte, UnitType.Byte), (a) => a / yotta);
+            x.Add(Key(UnitGroup.Data, UnitType.Yottabyte, UnitType.Bit), (a) => a * 8.0 * YOTTA);
+            x.Add(Key(UnitGroup.Data, UnitType.Yottabyte, UnitType.Byte), (a) => a / YOTTA);
 
 
             return x;
