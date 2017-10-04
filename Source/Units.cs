@@ -7,12 +7,12 @@ namespace Conversion
 {
     public enum UnitGroup
     {
-        Data,
-        Distance,
-        Speed,
-        Temperature,
-        Time,
-        Weight
+        data,
+        distance,
+        speed,
+        temperature,
+        time,
+        weight
     }
 
     public enum UnitType
@@ -46,39 +46,39 @@ namespace Conversion
         exbibyte,
 
         // Distance
-        Kilometer,
-        Meter,
-        Kecimeter,
-        Centimeter,
-        Millimeter,
-        Mile,
-        Inch,
-        Foot,
-        Yard,
-        NauticalMile,
+        kilometer,
+        meter,
+        kecimeter,
+        centimeter,
+        millimeter,
+        mile,
+        inch,
+        foot,
+        yard,
+        nautical_mile,
 
         // Temperature
-        Celsius,
-        Fahrenheit,
-        Kelvin,
-        Reaumur,
-        Newton,
-        Rankine,
+        celsius,
+        fahrenheit,
+        kelvin,
+        reaumur,
+        newton,
+        rankine,
 
         // Time
-        Year,
-        Quarter,
-        Month,
-        Week,
-        Day,
-        Hour,
-        Minute,
-        Second,
-        Millisecond,
-        Microsecond,
-        Picosecond,
-        Femtosecond,
-        Attosecond
+        year,
+        quarter,
+        month,
+        week,
+        day,
+        hour,
+        minute,
+        second,
+        millisecond,
+        microsecond,
+        picosecond,
+        femtosecond,
+        attosecond
     }
 
     class Units
@@ -124,53 +124,53 @@ namespace Conversion
 
         public static List<UnitType> TemperatureOpts = new List<UnitType>
         {
-            UnitType.Celsius,
-            UnitType.Fahrenheit,
-            UnitType.Kelvin,
-            UnitType.Reaumur,
-            UnitType.Newton,
-            UnitType.Rankine
+            UnitType.celsius,
+            UnitType.fahrenheit,
+            UnitType.kelvin,
+            UnitType.reaumur,
+            UnitType.newton,
+            UnitType.rankine
         };
 
         public static List<UnitType> DistanceOpts = new List<UnitType>
         {
-            UnitType.Kilometer,
-            UnitType.Meter,
-            UnitType.Kecimeter,
-            UnitType.Centimeter,
-            UnitType.Millimeter,
-            UnitType.Mile,
-            UnitType.Inch,
-            UnitType.Foot,
-            UnitType.Yard,
-            UnitType.NauticalMile
+            UnitType.kilometer,
+            UnitType.meter,
+            UnitType.kecimeter,
+            UnitType.centimeter,
+            UnitType.millimeter,
+            UnitType.mile,
+            UnitType.inch,
+            UnitType.foot,
+            UnitType.yard,
+            UnitType.nautical_mile
         };
 
         public static List<UnitType> TimeOpts = new List<UnitType>
         {
-            UnitType.Year,
-            UnitType.Quarter,
-            UnitType.Month,
-            UnitType.Week,
-            UnitType.Day,
-            UnitType.Hour,
-            UnitType.Minute,
-            UnitType.Second,
-            UnitType.Millisecond,
-            UnitType.Microsecond,
-            UnitType.Picosecond,
-            UnitType.Femtosecond,
-            UnitType.Attosecond
+            UnitType.year,
+            UnitType.quarter,
+            UnitType.month,
+            UnitType.week,
+            UnitType.day,
+            UnitType.hour,
+            UnitType.minute,
+            UnitType.second,
+            UnitType.millisecond,
+            UnitType.microsecond,
+            UnitType.picosecond,
+            UnitType.femtosecond,
+            UnitType.attosecond
         };
 
         public static IDictionary<UnitGroup, string> UnitGroupNameMap = new Dictionary<UnitGroup, string>()
         {
-            {UnitGroup.Data, AppResources.data},
-            {UnitGroup.Distance, AppResources.distance},
-            {UnitGroup.Speed, AppResources.speed},
-            {UnitGroup.Temperature, AppResources.temperature},
-            {UnitGroup.Time, AppResources.time},
-            {UnitGroup.Weight, AppResources.weight},
+            {UnitGroup.data, AppResources.data},
+            {UnitGroup.distance, AppResources.distance},
+            {UnitGroup.speed, AppResources.speed},
+            {UnitGroup.temperature, AppResources.temperature},
+            {UnitGroup.time, AppResources.time},
+            {UnitGroup.weight, AppResources.weight},
         };
 
         public static IDictionary<UnitType, string> UnitTypeNameMap = new Dictionary<UnitType, string>()
@@ -221,12 +221,12 @@ namespace Conversion
 
         public static IDictionary<UnitGroup, List<UnitType>> UnitMap = new SortedDictionary<UnitGroup, List<UnitType>>()
         {
-            {UnitGroup.Data, DataOpts},
-            {UnitGroup.Distance, DistanceOpts},
-            {UnitGroup.Speed, TemperatureOpts},
-            {UnitGroup.Temperature, TemperatureOpts},
-            {UnitGroup.Time, TimeOpts},
-            {UnitGroup.Weight, TemperatureOpts},
+            {UnitGroup.data, DataOpts},
+            {UnitGroup.distance, DistanceOpts},
+            {UnitGroup.speed, TemperatureOpts},
+            {UnitGroup.temperature, TemperatureOpts},
+            {UnitGroup.time, TimeOpts},
+            {UnitGroup.weight, TemperatureOpts},
         };
 
 

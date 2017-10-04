@@ -55,49 +55,104 @@ namespace Conversion
             Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>> x = new Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>>();
 
             // Temperature
-            x.Add(Key(UnitGroup.Temperature, UnitType.Celsius, UnitType.Fahrenheit), (a) => a * (9.0 / 5.0) + 32);
+            x.Add(Key(UnitGroup.temperature, UnitType.celsius, UnitType.fahrenheit), (a) => a * (9.0 / 5.0) + 32);
 
-            x.Add(Key(UnitGroup.Temperature, UnitType.Fahrenheit, UnitType.Celsius), (a) => (a - 32) * (5.0 / 9.0));
-            x.Add(Key(UnitGroup.Temperature, UnitType.Fahrenheit, UnitType.Fahrenheit), identity);
-            x.Add(Key(UnitGroup.Temperature, UnitType.Fahrenheit, UnitType.Kelvin), (a) => (a + 459.67) * (5.0 / 9.0));
-            x.Add(Key(UnitGroup.Temperature, UnitType.Fahrenheit, UnitType.Newton), (a) => (a - 32) * (11.0 / 60.0));
-            x.Add(Key(UnitGroup.Temperature, UnitType.Fahrenheit, UnitType.Rankine), (a) => a + 459.67);
-            x.Add(Key(UnitGroup.Temperature, UnitType.Fahrenheit, UnitType.Reaumur), (a) => (a - 32) * (4.0 / 9.0));
+            x.Add(Key(UnitGroup.temperature, UnitType.fahrenheit, UnitType.celsius), (a) => (a - 32) * (5.0 / 9.0));
+            x.Add(Key(UnitGroup.temperature, UnitType.fahrenheit, UnitType.fahrenheit), identity);
+            x.Add(Key(UnitGroup.temperature, UnitType.fahrenheit, UnitType.kelvin), (a) => (a + 459.67) * (5.0 / 9.0));
+            x.Add(Key(UnitGroup.temperature, UnitType.fahrenheit, UnitType.newton), (a) => (a - 32) * (11.0 / 60.0));
+            x.Add(Key(UnitGroup.temperature, UnitType.fahrenheit, UnitType.rankine), (a) => a + 459.67);
+            x.Add(Key(UnitGroup.temperature, UnitType.fahrenheit, UnitType.reaumur), (a) => (a - 32) * (4.0 / 9.0));
 
-            x.Add(Key(UnitGroup.Temperature, UnitType.Kelvin, UnitType.Celsius), (a) => a - 273.15);
-            x.Add(Key(UnitGroup.Temperature, UnitType.Kelvin, UnitType.Fahrenheit), (a) => (a * (9.0 / 5.0)) - 459.67);
-            x.Add(Key(UnitGroup.Temperature, UnitType.Kelvin, UnitType.Newton), (a) => (a - 273.15) * (33.0 / 100.0));
-            x.Add(Key(UnitGroup.Temperature, UnitType.Kelvin, UnitType.Kelvin), identity);
-            x.Add(Key(UnitGroup.Temperature, UnitType.Kelvin, UnitType.Rankine), (a) => a * (9.0 / 5.0));
-            x.Add(Key(UnitGroup.Temperature, UnitType.Kelvin, UnitType.Reaumur), (a) => (a - 273.15) * (4.0 / 5.0));
+            x.Add(Key(UnitGroup.temperature, UnitType.kelvin, UnitType.celsius), (a) => a - 273.15);
+            x.Add(Key(UnitGroup.temperature, UnitType.kelvin, UnitType.fahrenheit), (a) => (a * (9.0 / 5.0)) - 459.67);
+            x.Add(Key(UnitGroup.temperature, UnitType.kelvin, UnitType.newton), (a) => (a - 273.15) * (33.0 / 100.0));
+            x.Add(Key(UnitGroup.temperature, UnitType.kelvin, UnitType.kelvin), identity);
+            x.Add(Key(UnitGroup.temperature, UnitType.kelvin, UnitType.rankine), (a) => a * (9.0 / 5.0));
+            x.Add(Key(UnitGroup.temperature, UnitType.kelvin, UnitType.reaumur), (a) => (a - 273.15) * (4.0 / 5.0));
 
+
+            /*
+             * UnitType.bit,
+            UnitType._byte,
+
+            UnitType.kilobit,
+            UnitType.megabit,
+            UnitType.gigabit,
+            UnitType.terabit,
+            UnitType.petabit,
+            UnitType.exabit,
+
+            UnitType.kibibit,
+            UnitType.mebibit,
+            UnitType.gibibit,
+            UnitType.tebibit,
+            UnitType.pebibit,
+            UnitType.exbibit,
+
+            UnitType.kilobyte,
+            UnitType.megabyte,
+            UnitType.gigabyte,
+            UnitType.terabyte,
+            UnitType.petabyte,
+            UnitType.exabyte,
+
+            UnitType.kibibyte,
+            UnitType.mebibyte,
+            UnitType.gibibyte,
+            UnitType.tebibyte,
+            UnitType.pebibyte,
+            UnitType.exbibyte,
+             */
             // Data
-            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.bit), identity);
-            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType._byte), (a) => a / 8.0);
-            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.kilobyte), (a) => a / 8.0 / KILO);
-            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.megabyte), (a) => a / 8.0 / MEGA);
-            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.gigabyte), (a) => a / 8.0 / GIGA);
-            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.terabyte), (a) => a / 8.0 / TERA);
-            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.petabyte), (a) => a / 8.0 / PETA);
-            x.Add(Key(UnitGroup.Data, UnitType.bit, UnitType.exabyte), (a) => a / 8.0 / EXA);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.bit), identity);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType._byte), (a) => a / 8.0);
 
-            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.bit), (a) => a * 8.0);
-            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType._byte), identity);
-            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.kilobyte), (a) => a / KILO);
-            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.megabyte), (a) => a / MEGA);
-            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.gigabyte), (a) => a / GIGA);
-            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.terabyte), (a) => a / TERA);
-            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.petabyte), (a) => a / PETA);
-            x.Add(Key(UnitGroup.Data, UnitType._byte, UnitType.exabyte), (a) => a / EXA);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.kilobit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.megabit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.gigabit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.terabit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.petabit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.exabit), (a) => a);
 
-            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.bit), (a) => a * 8.0 * KILO);
-            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType._byte), (a) => a * KILO);
-            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.kilobyte), identity);
-            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.megabyte), (a) => a * KILO / MEGA);
-            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.gigabyte), (a) => a * KILO / GIGA);
-            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.terabyte), (a) => a * KILO / TERA);
-            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.petabyte), (a) => a * KILO / PETA);
-            x.Add(Key(UnitGroup.Data, UnitType.kilobyte, UnitType.exabyte), (a) => a * KILO / EXA);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.kibibit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.megabit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.gigabit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.tebibit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.pebibit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.exabit), (a) => a);
+
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.kilobyte), (a) => a / 8.0 / KILO);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.megabyte), (a) => a / 8.0 / MEGA);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.gigabyte), (a) => a / 8.0 / GIGA);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.terabyte), (a) => a / 8.0 / TERA);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.petabyte), (a) => a / 8.0 / PETA);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.exabyte), (a) => a / 8.0 / EXA);
+
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.kibibit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.megabit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.gigabit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.tebibit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.pebibit), (a) => a);
+            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.exabit), (a) => a);
+
+            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.bit), (a) => a * 8.0);
+            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType._byte), identity);
+            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.kilobyte), (a) => a / KILO);
+            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.megabyte), (a) => a / MEGA);
+            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.gigabyte), (a) => a / GIGA);
+            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.terabyte), (a) => a / TERA);
+            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.petabyte), (a) => a / PETA);
+            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.exabyte), (a) => a / EXA);
+
+            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.bit), (a) => a * 8.0 * KILO);
+            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType._byte), (a) => a * KILO);
+            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.kilobyte), identity);
+            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.megabyte), (a) => a * KILO / MEGA);
+            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.gigabyte), (a) => a * KILO / GIGA);
+            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.terabyte), (a) => a * KILO / TERA);
+            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.petabyte), (a) => a * KILO / PETA);
+            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.exabyte), (a) => a * KILO / EXA);
 
             return x;
         }
