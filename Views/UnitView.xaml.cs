@@ -10,24 +10,23 @@ namespace Conversion
     {
         public List<UnitType> UnitTypes { get; set; }
 
-        public UnitGroup SelectedUnitGroup { get; set; }
-
         private static ILogger logger = new ConsoleLogger(nameof(UnitPage));
 
-        private static Conversions conversions = Conversions.Instance;
+        private Converter converter;
 
         public UnitPage()
         {
             InitializeComponent();
         }
 
-        public UnitPage(UnitGroup unitGroup, List<UnitType> unitTypes)
+        public UnitPage(Converter converter)
         {
+            this.converter = converter;
+
             InitializeComponent();
 
-            SelectedUnitGroup = unitGroup;
-            Title = Units.T(SelectedUnitGroup);
-            UnitTypes = unitTypes;
+            Title = Units.T(converter.Group);
+            UnitTypes = converter.Types;
 
             pickerLeft.ItemsSource = UnitTypes.Select(x => $"{Units.T(x)} ({Units.TAbbr(x)})").ToList();
             pickerLeft.SelectedIndex = 0;
@@ -45,7 +44,7 @@ namespace Conversion
 
             Double input = Convert.ToDouble(NumLeft.Text);
             logger.Info($"parsed value: {input}");
-            Double result = conversions.Convert(SelectedUnitGroup, typeLeft, typeRight, input);
+            Double result = converter.Convert(converter.Group, typeLeft, typeRight, input);
             NumRight.Text = result.ToString();
 
             ResultInput.Text = Units.TAbbr(typeLeft);

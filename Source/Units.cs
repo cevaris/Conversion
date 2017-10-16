@@ -229,6 +229,16 @@ namespace Conversion
             {UnitGroup.weight, TemperatureOpts},
         };
 
+        public static IDictionary<UnitGroup, Converter> ConverterMap = new Dictionary<UnitGroup, Converter>()
+        {
+            {UnitGroup.data, Source.Groups.Data.Instance},
+            {UnitGroup.distance, Source.Groups.Data.Instance},
+            {UnitGroup.speed, Source.Groups.Data.Instance},
+            {UnitGroup.temperature, Source.Groups.Data.Instance},
+            {UnitGroup.time, Source.Groups.Data.Instance},
+            {UnitGroup.weight, Source.Groups.Data.Instance},
+        };
+
 
 
         public static string T(UnitGroup unitGroup)

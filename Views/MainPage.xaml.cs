@@ -38,7 +38,7 @@ namespace Conversion.Views
             if (unitGroupModel != null)
             {
                 UnitGroup unitGroup = unitGroupModel.UnitGroup;
-                UnitPage page = new UnitPage(unitGroup, Units.UnitMap[unitGroup]);
+                UnitPage page = new UnitPage(Units.ConverterMap[unitGroup]);
                 await Navigation.PushAsync(page);
 
                 // deselect item
