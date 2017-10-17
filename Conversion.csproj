@@ -76,6 +76,7 @@
       <DependentUpon>AppResources.ja.resx</DependentUpon>
     </Compile>
     <Compile Include="Source\Groups\Data.cs" />
+    <Compile Include="Source\Groups\Distance.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Source\" />

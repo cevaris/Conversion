@@ -51,16 +51,28 @@ namespace Conversion
 
 
         // Distance
-        kilometer,
-        meter,
-        kecimeter,
-        centimeter,
+        femtometer,
+        picometer,
+        nanometer,
+        micrometer,
         millimeter,
-        mile,
+        centimeter,
+        decimeter,
+        meter,
+        decameter,
+        hectometer,
+        kilometer,
+        megameter,
+        gigameter,
+
         inch,
         foot,
         yard,
+        mile,
         nautical_mile,
+
+        marathon,
+
 
         // Temperature
         celsius,
@@ -136,19 +148,19 @@ namespace Conversion
             UnitType.rankine
         };
 
-        public static List<UnitType> DistanceOpts = new List<UnitType>
-        {
-            UnitType.kilometer,
-            UnitType.meter,
-            UnitType.kecimeter,
-            UnitType.centimeter,
-            UnitType.millimeter,
-            UnitType.mile,
-            UnitType.inch,
-            UnitType.foot,
-            UnitType.yard,
-            UnitType.nautical_mile
-        };
+        //public static List<UnitType> DistanceOpts = new List<UnitType>
+        //{
+        //    UnitType.kilometer,
+        //    UnitType.meter,
+        //    UnitType.kecimeter,
+        //    UnitType.centimeter,
+        //    UnitType.millimeter,
+        //    UnitType.mile,
+        //    UnitType.inch,
+        //    UnitType.foot,
+        //    UnitType.yard,
+        //    UnitType.nautical_mile
+        //};
 
         public static List<UnitType> TimeOpts = new List<UnitType>
         {
@@ -236,7 +248,7 @@ namespace Conversion
         public static IDictionary<UnitGroup, Converter> ConverterMap = new Dictionary<UnitGroup, Converter>()
         {
             {UnitGroup.data, Source.Groups.Data.Instance},
-            {UnitGroup.distance, Source.Groups.Data.Instance},
+            {UnitGroup.distance, Source.Groups.Distance.Instance},
             {UnitGroup.speed, Source.Groups.Data.Instance},
             {UnitGroup.temperature, Source.Groups.Data.Instance},
             {UnitGroup.time, Source.Groups.Data.Instance},
