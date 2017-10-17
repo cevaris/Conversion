@@ -24,9 +24,9 @@ namespace Conversion
         {
             get
             {
-                return new CultureInfo("ja-JP");
+                //return new CultureInfo("ja-JP");
                 //return new CultureInfo("es");
-                //return CultureInfo.DefaultThreadCurrentUICulture;
+                return CultureInfo.DefaultThreadCurrentUICulture;
             }
         }
 
@@ -34,9 +34,9 @@ namespace Conversion
         {
             InitializeComponent();
 
-            CultureInfo englishUSCulture = CurrentCultureInfo;
-            CultureInfo.DefaultThreadCurrentCulture = englishUSCulture;
-            CultureInfo.DefaultThreadCurrentUICulture = englishUSCulture;
+            CultureInfo cultureInfo = CurrentCultureInfo;
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
             NavigationPage page = new NavigationPage(new Views.MainPage());
             if (Device.RuntimePlatform == Device.iOS)

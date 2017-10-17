@@ -5,30 +5,24 @@ namespace Conversion
 {
     public abstract class Converter
     {
-        ILogger logger = new ConsoleLogger(nameof(Converter));
-
-        public const double KILO = 1000;
+        public const double BASE = 1;
+        public const double KILO = BASE * 1000;
         public const double MEGA = KILO * 1000;
         public const double GIGA = MEGA * 1000;
         public const double TERA = GIGA * 1000;
         public const double PETA = TERA * 1000;
         public const double EXA = PETA * 1000;
 
-        public const double KIBI = 1024;
-        public const double MEBI = KIBI * 1024;
-        public const double GIBI = MEBI * 1024;
-        public const double TEBI = GIBI * 1024;
-        public const double PEBI = TEBI * 1024;
-        public const double EXBI = PEBI * 1024;
+        static private ILogger logger = new ConsoleLogger(nameof(Converter));
 
-        private Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>> funcs;
+        protected Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>> funcs = new Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>>();
         public Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>> Funcs
         {
             get
             {
                 if (funcs == null)
                 {
-                    funcs = Load();
+                    Load();
                 }
                 return funcs;
             }

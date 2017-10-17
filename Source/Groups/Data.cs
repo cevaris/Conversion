@@ -1,10 +1,24 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
+
 
 namespace Conversion.Source.Groups
 {
     public class Data : Converter
     {
+        static private ILogger logger = new ConsoleLogger(nameof(Data));
+
+        private const double BIT = 1;
+        private const double BYTE = 8 * BIT;
+
+        public const double KIBI = BASE * 1024;
+        public const double MEBI = KIBI * 1024;
+        public const double GIBI = MEBI * 1024;
+        public const double TEBI = GIBI * 1024;
+        public const double PEBI = TEBI * 1024;
+        public const double EXBI = PEBI * 1024;
+
         private static Data instance;
         public static Data Instance
         {
@@ -13,72 +27,63 @@ namespace Conversion.Source.Groups
                 if (instance == null)
                 {
                     instance = new Data();
+                    instance.Load();
                 }
                 return instance;
             }
         }
 
-        protected override Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>> Load() {
-            Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>> x = new Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>>();
-            /*
-          UnitType.bit,
-          UnitType._byte,
+        private static List<DataType> dataTypes = new List<DataType>()
+        {
+            DataType.Create(UnitType.bit, BASE, BIT),       // 1 bit
+            DataType.Create(UnitType._byte, BASE, BYTE),    // 8 bits
 
-          UnitType.kilobit,
-          UnitType.megabit,
-          UnitType.gigabit,
-          UnitType.terabit,
-          UnitType.petabit,
-          UnitType.exabit,
+            DataType.Create(UnitType.kilobit, KILO, BIT),   // 1000 bits * 1 bits
+            DataType.Create(UnitType.megabit, MEGA, BIT),
+            DataType.Create(UnitType.gigabit, GIGA, BIT),
+            DataType.Create(UnitType.terabit, TERA, BIT),
+            DataType.Create(UnitType.petabit, PETA, BIT),
+            DataType.Create(UnitType.exabit, EXA, BIT),
 
-          UnitType.kibibit,
-          UnitType.mebibit,
-          UnitType.gibibit,
-          UnitType.tebibit,
-          UnitType.pebibit,
-          UnitType.exbibit,
+            DataType.Create(UnitType.kibibit, KIBI, BIT),   // 1024 bits * 1 bits
+            DataType.Create(UnitType.mebibit, MEBI, BIT),
+            DataType.Create(UnitType.gibibit, GIBI, BIT),
+            DataType.Create(UnitType.tebibit, TEBI, BIT),
+            DataType.Create(UnitType.pebibit, PEBI, BIT),
+            DataType.Create(UnitType.exbibit, GIBI, BIT),
 
-          UnitType.kilobyte,
-          UnitType.megabyte,
-          UnitType.gigabyte,
-          UnitType.terabyte,
-          UnitType.petabyte,
-          UnitType.exabyte,
+            DataType.Create(UnitType.kilobyte, KILO, BYTE), // 1000 bits * 8 bits
+            DataType.Create(UnitType.megabyte, MEGA, BYTE),
+            DataType.Create(UnitType.gigabyte, GIGA, BYTE),
+            DataType.Create(UnitType.terabyte, TERA, BYTE),
+            DataType.Create(UnitType.petabyte, PETA, BYTE),
+            DataType.Create(UnitType.exabyte, EXA, BYTE),
 
-          UnitType.kibibyte,
-          UnitType.mebibyte,
-          UnitType.gibibyte,
-          UnitType.tebibyte,
-          UnitType.pebibyte,
-          UnitType.exbibyte,
-           */
-            // Data
-            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.kilobyte), (a) => a / 8.0 / KILO);
-            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.megabyte), (a) => a / 8.0 / MEGA);
-            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.gigabyte), (a) => a / 8.0 / GIGA);
-            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.terabyte), (a) => a / 8.0 / TERA);
-            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.petabyte), (a) => a / 8.0 / PETA);
-            x.Add(Key(UnitGroup.data, UnitType.bit, UnitType.exabyte), (a) => a / 8.0 / EXA);
+            DataType.Create(UnitType.kibibyte, KIBI, BYTE), // 1024 bits * 8 bits
+            DataType.Create(UnitType.mebibyte, MEBI, BYTE),
+            DataType.Create(UnitType.gibibyte, GIBI, BYTE),
+            DataType.Create(UnitType.tebibyte, TEBI, BYTE),
+            DataType.Create(UnitType.pebibyte, PEBI, BYTE),
+            DataType.Create(UnitType.exbibyte, EXBI, BYTE),
+        };
 
-            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.bit), (a) => a * 8.0);
-            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType._byte), identity);
-            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.kilobyte), (a) => a / KILO);
-            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.megabyte), (a) => a / MEGA);
-            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.gigabyte), (a) => a / GIGA);
-            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.terabyte), (a) => a / TERA);
-            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.petabyte), (a) => a / PETA);
-            x.Add(Key(UnitGroup.data, UnitType._byte, UnitType.exabyte), (a) => a / EXA);
+        public static List<UnitType> DataOpts = dataTypes
+            .Select(x => x.Type)
+            .ToList();
 
-            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.bit), (a) => a * 8.0 * KILO);
-            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType._byte), (a) => a * KILO);
-            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.kilobyte), identity);
-            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.megabyte), (a) => a * KILO / MEGA);
-            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.gigabyte), (a) => a * KILO / GIGA);
-            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.terabyte), (a) => a * KILO / TERA);
-            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.petabyte), (a) => a * KILO / PETA);
-            x.Add(Key(UnitGroup.data, UnitType.kilobyte, UnitType.exabyte), (a) => a * KILO / EXA);
 
-            return x;
+        protected override Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>> Load()
+        {
+
+            foreach (UnitType a in Units.DataOpts)
+            {
+                foreach (UnitType b in Units.DataOpts)
+                {
+                    funcs.Add(Key(UnitGroup.data, a, b), Convert(a, b));
+                }
+            }
+
+            return funcs;
         }
 
         protected override UnitGroup group()
@@ -90,5 +95,45 @@ namespace Conversion.Source.Groups
         {
             return Units.DataOpts;
         }
+
+        public static Func<Double, Double> Convert(UnitType from, UnitType to)
+        {
+            DataType fromType = dataTypes.Find(x => x.Type == from);
+            DataType toType = dataTypes.Find(x => x.Type == to);
+
+            logger.Info($"{fromType} to {toType}");
+            return (Double x) =>
+            {
+                double fromBits = x * fromType.BitType * fromType.Scale;
+                double toBits = x * toType.BitType * toType.Scale;
+
+                logger.Info($"({x}) => {fromBits} to {toBits}");
+                return fromBits / toBits;
+            };
+        }
+
+        private static bool eq(double a, double b)
+        {
+            return (Math.Abs(a - b) > 0.00001);
+        }
+
     }
+
+    class DataType
+    {
+        public static DataType Create(UnitType type, double scale, double bitType)
+        {
+            return new DataType
+            {
+                Type = type,
+                BitType = bitType,
+                Scale = scale
+            };
+        }
+
+        public UnitType Type { get; set; }
+        public double BitType { get; set; }
+        public double Scale { get; set; }
+    }
+
 }

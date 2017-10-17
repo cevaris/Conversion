@@ -19,31 +19,36 @@ namespace Conversion
     {
         // Data
         bit,      // 1 bit
-        _byte,     // 8 bits
+        _byte,    // 8 bits
+
         kilobit,  // 1000 bits
-        kibibit,  // 1024 bits
-        kilobyte, // 1000 bytes
-        kibibyte, // 1024 bytes
         megabit,
-        mebibit,
-        megabyte,
-        mebibyte,
         gigabit,
-        gibibit,
-        gigabyte,
-        gibibyte,
         terabit,
-        tebibit,
-        terabyte,
-        tebibyte,
         petabit,
-        pebibit,
-        petabyte,
-        pebibyte,
         exabit,
+
+        kibibit,  // 1024 bits
+        mebibit,
+        gibibit,
+        tebibit,
+        pebibit,
         exbibit,
+
+        kilobyte, // 1000 bytes
+        megabyte,
+        gibibyte,
+        terabyte,
+        petabyte,
         exabyte,
+
+        kibibyte, // 1024 bytes
+        mebibyte,
+        gigabyte,
+        tebibyte,
+        pebibyte,
         exbibyte,
+
 
         // Distance
         kilometer,
@@ -83,40 +88,39 @@ namespace Conversion
 
     class Units
     {
-
         public static List<UnitGroup> UnitGroups = Enum.GetValues(typeof(UnitGroup))
                                                        .Cast<UnitGroup>()
                                                        .ToList();
 
         public static List<UnitType> DataOpts = new List<UnitType>()
         {
-            UnitType.bit,
-            UnitType._byte,
+            UnitType.bit,      // 1 bit
+            UnitType._byte,    // 8 bits
 
-            UnitType.kilobit,
+            UnitType.kilobit,  // 1000 bits
             UnitType.megabit,
             UnitType.gigabit,
             UnitType.terabit,
             UnitType.petabit,
             UnitType.exabit,
 
-            UnitType.kibibit,
+            UnitType.kibibit,  // 1024 bits
             UnitType.mebibit,
             UnitType.gibibit,
             UnitType.tebibit,
             UnitType.pebibit,
             UnitType.exbibit,
 
-            UnitType.kilobyte,
+            UnitType.kilobyte, // 1000 bytes
             UnitType.megabyte,
-            UnitType.gigabyte,
+            UnitType.gibibyte,
             UnitType.terabyte,
             UnitType.petabyte,
             UnitType.exabyte,
 
-            UnitType.kibibyte,
+            UnitType.kibibyte, // 1024 bytes
             UnitType.mebibyte,
-            UnitType.gibibyte,
+            UnitType.gigabyte,
             UnitType.tebibyte,
             UnitType.pebibyte,
             UnitType.exbibyte,
