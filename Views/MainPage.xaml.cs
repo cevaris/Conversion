@@ -17,10 +17,8 @@ namespace Conversion.Views
         {
             InitializeComponent();
 
-            logger.Info($"Getting the right stuff: {Resx.AppResources.temperature}");
-
             UnitGroupItemsSource = new ObservableCollection<UnitGroupModel>();
-            foreach (UnitGroup unitGroup in Units.UnitMap.Keys)
+            foreach (UnitGroup unitGroup in Units.UnitGroups)
             {
                 UnitGroupItemsSource.Add(new UnitGroupModel
                 {

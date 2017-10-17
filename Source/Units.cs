@@ -92,39 +92,39 @@ namespace Conversion
                                                        .Cast<UnitGroup>()
                                                        .ToList();
 
-        public static List<UnitType> DataOpts = new List<UnitType>()
-        {
-            UnitType.bit,      // 1 bit
-            UnitType._byte,    // 8 bits
+        //public static List<UnitType> DataOpts = new List<UnitType>()
+        //{
+        //    UnitType.bit,      // 1 bit
+        //    UnitType._byte,    // 8 bits
 
-            UnitType.kilobit,  // 1000 bits
-            UnitType.megabit,
-            UnitType.gigabit,
-            UnitType.terabit,
-            UnitType.petabit,
-            UnitType.exabit,
+        //    UnitType.kilobit,  // 1000 bits
+        //    UnitType.megabit,
+        //    UnitType.gigabit,
+        //    UnitType.terabit,
+        //    UnitType.petabit,
+        //    UnitType.exabit,
 
-            UnitType.kibibit,  // 1024 bits
-            UnitType.mebibit,
-            UnitType.gibibit,
-            UnitType.tebibit,
-            UnitType.pebibit,
-            UnitType.exbibit,
+        //    UnitType.kibibit,  // 1024 bits
+        //    UnitType.mebibit,
+        //    UnitType.gibibit,
+        //    UnitType.tebibit,
+        //    UnitType.pebibit,
+        //    UnitType.exbibit,
 
-            UnitType.kilobyte, // 1000 bytes
-            UnitType.megabyte,
-            UnitType.gibibyte,
-            UnitType.terabyte,
-            UnitType.petabyte,
-            UnitType.exabyte,
+        //    UnitType.kilobyte, // 1000 bytes
+        //    UnitType.megabyte,
+        //    UnitType.gibibyte,
+        //    UnitType.terabyte,
+        //    UnitType.petabyte,
+        //    UnitType.exabyte,
 
-            UnitType.kibibyte, // 1024 bytes
-            UnitType.mebibyte,
-            UnitType.gigabyte,
-            UnitType.tebibyte,
-            UnitType.pebibyte,
-            UnitType.exbibyte,
-        };
+        //    UnitType.kibibyte, // 1024 bytes
+        //    UnitType.mebibyte,
+        //    UnitType.gigabyte,
+        //    UnitType.tebibyte,
+        //    UnitType.pebibyte,
+        //    UnitType.exbibyte,
+        //};
 
         public static List<UnitType> TemperatureOpts = new List<UnitType>
         {
@@ -223,15 +223,15 @@ namespace Conversion
             {UnitType.exbibyte, "EiB"},
         };
 
-        public static IDictionary<UnitGroup, List<UnitType>> UnitMap = new SortedDictionary<UnitGroup, List<UnitType>>()
-        {
-            {UnitGroup.data, DataOpts},
-            {UnitGroup.distance, DistanceOpts},
-            {UnitGroup.speed, TemperatureOpts},
-            {UnitGroup.temperature, TemperatureOpts},
-            {UnitGroup.time, TimeOpts},
-            {UnitGroup.weight, TemperatureOpts},
-        };
+        //public static IDictionary<UnitGroup, List<UnitType>> UnitMap = new SortedDictionary<UnitGroup, List<UnitType>>()
+        //{
+        //    {UnitGroup.data, DataOpts},
+        //    {UnitGroup.distance, DistanceOpts},
+        //    {UnitGroup.speed, TemperatureOpts},
+        //    {UnitGroup.temperature, TemperatureOpts},
+        //    {UnitGroup.time, TimeOpts},
+        //    {UnitGroup.weight, TemperatureOpts},
+        //};
 
         public static IDictionary<UnitGroup, Converter> ConverterMap = new Dictionary<UnitGroup, Converter>()
         {
