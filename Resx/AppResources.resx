@@ -140,7 +140,7 @@
 	<data name="bit" xml:space="preserve">
         <value>bit</value>
     </data>
-	<data name="byte" xml:space="preserve">
+	<data name="_byte" xml:space="preserve">
         <value>byte</value>
     </data>
 	<data name="kilobit" xml:space="preserve">

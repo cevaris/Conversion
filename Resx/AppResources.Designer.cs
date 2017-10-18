@@ -91,7 +91,7 @@ namespace Conversion.Resx {
         
         internal static string _byte {
             get {
-                return ResourceManager.GetString("byte", resourceCulture);
+                return ResourceManager.GetString("_byte", resourceCulture);
             }
         }
         
