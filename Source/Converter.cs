@@ -6,12 +6,23 @@ namespace Conversion
     public abstract class Converter
     {
         public const double BASE = 1;
-        public const double KILO = BASE * 1000;
-        public const double MEGA = KILO * 1000;
-        public const double GIGA = MEGA * 1000;
-        public const double TERA = GIGA * 1000;
-        public const double PETA = TERA * 1000;
-        public const double EXA = PETA * 1000;
+
+        public static readonly double FEMTO = Math.Pow(10, -15);
+        public static readonly double PICO = Math.Pow(10, -12);
+        public static readonly double NANO = Math.Pow(10, -9);
+        public static readonly double MICRO = Math.Pow(10, -6);
+        public static readonly double MILLI = Math.Pow(10, -3);
+        public static readonly double CENTI = Math.Pow(10, -2);
+        public static readonly double DECI = Math.Pow(10, -1);
+
+        public static readonly double DECA = Math.Pow(10, 1);
+        public static readonly double HECTO = Math.Pow(10, 2);
+        public static readonly double KILO = Math.Pow(10, 3);
+        public static readonly double MEGA = Math.Pow(10, 6);
+        public static readonly double GIGA = Math.Pow(10, 9);
+        public static readonly double TERA = Math.Pow(10, 12);
+        public static readonly double PETA = Math.Pow(10, 15);
+        public static readonly double EXA = Math.Pow(10, 18);
 
         static private ILogger logger = new ConsoleLogger(nameof(Converter));
 

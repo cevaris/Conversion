@@ -174,7 +174,7 @@ namespace Conversion
             {UnitType.megameter, "Mm"},
             {UnitType.gigameter, "Gm"},
 
-            {UnitType.inch, "inf"},
+            {UnitType.inch, "in"},
             {UnitType.foot, "ft"},
             {UnitType.yard, "yd"},
             {UnitType.mile, "mi"},

@@ -5,6 +5,16 @@ namespace Conversion.Source.Groups
 {
     public class Distance : Converter
     {
+        static private ILogger logger = new ConsoleLogger(nameof(Data));
+
+        const double METER = 1;
+        const double NAUTICAL_MILE = METER * 1852;
+
+        const double INCH = 0.0254; // inch -> meters
+        const double FOOT = INCH * 12;
+        const double YARD = FOOT * 3;
+        const double MILE = FOOT * 5280;
+
         private static Distance instance;
         public static Distance Instance
         {
@@ -26,6 +36,13 @@ namespace Conversion.Source.Groups
 
         protected override Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<double, double>> Load()
         {
+            foreach (UnitType a in types())
+            {
+                foreach (UnitType b in types())
+                {
+                    funcs.Add(Key(UnitGroup.distance, a, b), Convert(a, b));
+                }
+            }
             return funcs;
         }
 
@@ -56,5 +73,62 @@ namespace Conversion.Source.Groups
             UnitType.mile,
             UnitType.nautical_mile,
         };
+
+        private static List<DistanceConfig> distancConfigs = new List<DistanceConfig>
+        {
+            DistanceConfig.Create(UnitType.femtometer, FEMTO, METER),
+            DistanceConfig.Create(UnitType.picometer, PICO, METER),
+            DistanceConfig.Create(UnitType.nanometer, NANO, METER),
+            DistanceConfig.Create(UnitType.micrometer, MICRO, METER),
+            DistanceConfig.Create(UnitType.millimeter, MILLI, METER),
+            DistanceConfig.Create(UnitType.picometer, PICO, METER),
+            DistanceConfig.Create(UnitType.centimeter, CENTI, METER),
+            DistanceConfig.Create(UnitType.decimeter, DECI, METER),
+            DistanceConfig.Create(UnitType.meter, METER, METER),
+            DistanceConfig.Create(UnitType.decameter, DECA, METER),
+            DistanceConfig.Create(UnitType.hectometer, HECTO, METER),
+            DistanceConfig.Create(UnitType.kilometer, KILO, METER),
+            DistanceConfig.Create(UnitType.megameter, MEGA, METER),
+            DistanceConfig.Create(UnitType.gigameter, GIGA, METER),
+            DistanceConfig.Create(UnitType.nautical_mile, NAUTICAL_MILE, METER),
+
+            DistanceConfig.Create(UnitType.inch, INCH, 1),
+            DistanceConfig.Create(UnitType.foot, FOOT, 1),
+            DistanceConfig.Create(UnitType.yard, YARD, 1),
+            DistanceConfig.Create(UnitType.mile, MILE, 1),
+        };
+
+        private static Func<Double, Double> Convert(UnitType from, UnitType to)
+        {
+            DistanceConfig fromType = distancConfigs.Find(x => x.Type == from);
+            DistanceConfig toType = distancConfigs.Find(x => x.Type == to);
+
+            return (Double x) =>
+            {
+                double fromBits = x * fromType.MeterOrInch * fromType.Scale;
+                double toBits = toType.MeterOrInch * toType.Scale;
+
+                logger.Info($"({x}) => {fromBits} to {toBits}");
+                return fromBits / toBits;
+            };
+        }
+    }
+
+    class DistanceConfig
+    {
+        public UnitType Type { get; set; }
+        public double MeterOrInch { get; set; } // meter/inch
+        public double Scale { get; set; } // femto/pico/giga
+
+        public static DistanceConfig Create(UnitType type, double scale, double meterOrInch)
+        {
+            return new DistanceConfig
+            {
+                Type = type,
+                MeterOrInch = meterOrInch,
+                Scale = scale
+            };
+        }
+
     }
 }
