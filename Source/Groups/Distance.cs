@@ -8,12 +8,12 @@ namespace Conversion.Source.Groups
         static private ILogger logger = new ConsoleLogger(nameof(Data));
 
         const double METER = 1;
-        const double NAUTICAL_MILE = METER * 1852;
+        const double INCH = 0.0254; // inches in 1 meter
 
-        const double INCH = 0.0254; // inch -> meters
-        const double FOOT = INCH * 12;
+        const double FOOT = BASE * 12;
         const double YARD = FOOT * 3;
         const double MILE = FOOT * 5280;
+        const double NAUTICAL_MILE = BASE * 1852;
 
         private static Distance instance;
         public static Distance Instance
@@ -84,7 +84,7 @@ namespace Conversion.Source.Groups
             DistanceConfig.Create(UnitType.picometer, PICO, METER),
             DistanceConfig.Create(UnitType.centimeter, CENTI, METER),
             DistanceConfig.Create(UnitType.decimeter, DECI, METER),
-            DistanceConfig.Create(UnitType.meter, METER, METER),
+            DistanceConfig.Create(UnitType.meter, BASE, METER),
             DistanceConfig.Create(UnitType.decameter, DECA, METER),
             DistanceConfig.Create(UnitType.hectometer, HECTO, METER),
             DistanceConfig.Create(UnitType.kilometer, KILO, METER),
@@ -92,10 +92,10 @@ namespace Conversion.Source.Groups
             DistanceConfig.Create(UnitType.gigameter, GIGA, METER),
             DistanceConfig.Create(UnitType.nautical_mile, NAUTICAL_MILE, METER),
 
-            DistanceConfig.Create(UnitType.inch, INCH, 1),
-            DistanceConfig.Create(UnitType.foot, FOOT, 1),
-            DistanceConfig.Create(UnitType.yard, YARD, 1),
-            DistanceConfig.Create(UnitType.mile, MILE, 1),
+            DistanceConfig.Create(UnitType.inch, BASE, INCH),
+            DistanceConfig.Create(UnitType.foot, FOOT, INCH),
+            DistanceConfig.Create(UnitType.yard, YARD, INCH),
+            DistanceConfig.Create(UnitType.mile, MILE, INCH),
         };
 
         private static Func<Double, Double> Convert(UnitType from, UnitType to)
@@ -105,11 +105,11 @@ namespace Conversion.Source.Groups
 
             return (Double x) =>
             {
-                double fromBits = x * fromType.MeterOrInch * fromType.Scale;
-                double toBits = toType.MeterOrInch * toType.Scale;
+                double numerator = x * fromType.MeterOrInch * fromType.Scale;
+                double denominator = toType.MeterOrInch * toType.Scale;
 
-                logger.Info($"({x}) => {fromBits} to {toBits}");
-                return fromBits / toBits;
+                logger.Info($"({x}) => {numerator} to {denominator}");
+                return numerator / denominator;
             };
         }
     }
