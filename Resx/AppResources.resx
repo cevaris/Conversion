@@ -270,4 +270,20 @@
 	<data name="femtometer" xml:space="preserve">
         <value>femtometer</value>
     </data>
+    <!-- Speed -->
+	<data name="metersPerSecond" xml:space="preserve">
+        <value>meters per second</value>
+    </data>
+	<data name="kilometersPerHour" xml:space="preserve">
+        <value>kilometers per hour</value>
+    </data>
+	<data name="milePerHour" xml:space="preserve">
+        <value>miles per hour</value>
+    </data>
+	<data name="knot" xml:space="preserve">
+        <value>knot</value>
+    </data>
+	<data name="feetPerSecond" xml:space="preserve">
+        <value>feet per second</value>
+    </data>
 </root>

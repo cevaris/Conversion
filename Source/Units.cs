@@ -71,6 +71,13 @@ namespace Conversion
         mile,
         nautical_mile,
 
+        // Speed
+        metersPerSecond,
+        kilometersPerHour,
+        milePerHour,
+        knot,
+        feetPerSecond,
+
         // Temperature
         celsius,
         fahrenheit,
@@ -179,13 +186,19 @@ namespace Conversion
             {UnitType.yard, "yd"},
             {UnitType.mile, "mi"},
             {UnitType.nautical_mile, "n.m."},
+
+            {UnitType.metersPerSecond, "m/s"},
+            {UnitType.kilometersPerHour, "km/h"},
+            {UnitType.milePerHour, "mph"},
+            {UnitType.knot, "kn"},
+            {UnitType.feetPerSecond, "ft/s"},
         };
 
         public static IDictionary<UnitGroup, Converter> ConverterMap = new Dictionary<UnitGroup, Converter>()
         {
             {UnitGroup.data, Source.Groups.Data.Instance},
             {UnitGroup.distance, Source.Groups.Distance.Instance},
-            {UnitGroup.speed, Source.Groups.Data.Instance},
+            {UnitGroup.speed, Source.Groups.Speed.Instance},
             {UnitGroup.temperature, Source.Groups.Data.Instance},
             {UnitGroup.time, Source.Groups.Data.Instance},
             {UnitGroup.weight, Source.Groups.Data.Instance},

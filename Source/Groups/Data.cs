@@ -103,11 +103,11 @@ namespace Conversion.Source.Groups
 
             return (Double x) =>
             {
-                double fromBits = x * fromType.BitOrByte * fromType.Scale;
-                double toBits = toType.BitOrByte * toType.Scale;
+                double numerator = x * fromType.BitOrByte * fromType.Scale;
+                double denumerator = toType.BitOrByte * toType.Scale;
 
-                logger.Info($"({x}) => {fromBits} to {toBits}");
-                return fromBits / toBits;
+                logger.Info($"({x}) => {numerator} to {denumerator}");
+                return numerator / denumerator;
             };
         }
     }

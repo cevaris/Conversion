@@ -346,5 +346,35 @@ namespace Conversion.Resx {
                 return ResourceManager.GetString("femtometer", resourceCulture);
             }
         }
+        
+        internal static string metersPerSecond {
+            get {
+                return ResourceManager.GetString("metersPerSecond", resourceCulture);
+            }
+        }
+        
+        internal static string kilometersPerHour {
+            get {
+                return ResourceManager.GetString("kilometersPerHour", resourceCulture);
+            }
+        }
+        
+        internal static string milePerHour {
+            get {
+                return ResourceManager.GetString("milePerHour", resourceCulture);
+            }
+        }
+        
+        internal static string knot {
+            get {
+                return ResourceManager.GetString("knot", resourceCulture);
+            }
+        }
+        
+        internal static string feetPerSecond {
+            get {
+                return ResourceManager.GetString("feetPerSecond", resourceCulture);
+            }
+        }
     }
 }

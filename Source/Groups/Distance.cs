@@ -6,7 +6,7 @@ namespace Conversion.Source.Groups
 {
     public class Distance : Converter
     {
-        static private ILogger logger = new ConsoleLogger(nameof(Data));
+        static private ILogger logger = new ConsoleLogger(nameof(Distance));
 
         const double METER = 1;
         const double INCH = 0.0254; // inches in 1 meter
