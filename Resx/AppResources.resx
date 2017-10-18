@@ -215,4 +215,59 @@
 	<data name="exbibyte" xml:space="preserve">
         <value>exbibyte</value>
     </data>
+	<!-- Distance -->
+	<data name="nautical_mile" xml:space="preserve">
+        <value>nautical mile</value>
+    </data>
+	<data name="mile" xml:space="preserve">
+        <value>mile</value>
+    </data>
+	<data name="yard" xml:space="preserve">
+        <value>yard</value>
+    </data>
+	<data name="foot" xml:space="preserve">
+        <value>foot</value>
+    </data>
+	<data name="inch" xml:space="preserve">
+        <value>inch</value>
+    </data>
+	<data name="gigameter" xml:space="preserve">
+        <value>gigameter</value>
+    </data>
+	<data name="megameter" xml:space="preserve">
+        <value>megameter</value>
+    </data>
+	<data name="kilometer" xml:space="preserve">
+        <value>kilometer</value>
+    </data>
+	<data name="hectometer" xml:space="preserve">
+        <value>hectometer</value>
+    </data>
+	<data name="decameter" xml:space="preserve">
+        <value>decameter</value>
+    </data>
+	<data name="meter" xml:space="preserve">
+        <value>meter</value>
+    </data>
+	<data name="decimeter" xml:space="preserve">
+        <value>decimeter</value>
+    </data>
+	<data name="centimeter" xml:space="preserve">
+        <value>centimeter</value>
+    </data>
+	<data name="millimeter" xml:space="preserve">
+        <value>millimeter</value>
+    </data>
+	<data name="micrometer" xml:space="preserve">
+        <value>micrometer</value>
+    </data>
+	<data name="nanometer" xml:space="preserve">
+        <value>nanometer</value>
+    </data>
+	<data name="picometer" xml:space="preserve">
+        <value>picometer</value>
+    </data>
+	<data name="femtometer" xml:space="preserve">
+        <value>femtometer</value>
+    </data>
 </root>

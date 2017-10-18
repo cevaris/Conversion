@@ -28,9 +28,10 @@ namespace Conversion
             Title = Units.T(converter.Group);
             UnitTypes = converter.Types;
 
-            pickerLeft.ItemsSource = UnitTypes.Select(x => $"{Units.T(x)} ({Units.TAbbr(x)})").ToList();
+            List<string> pickerList = UnitTypes.Select(x => $"{Units.T(x)} ({Units.TAbbr(x)})").ToList();
+            pickerLeft.ItemsSource = pickerList;
             pickerLeft.SelectedIndex = 0;
-            pickerRight.ItemsSource = UnitTypes.Select(x => $"{Units.T(x)} ({Units.TAbbr(x)})").ToList();
+            pickerRight.ItemsSource = pickerList;
             pickerRight.SelectedIndex = 1;
 
             NumLeft.Text = "1";

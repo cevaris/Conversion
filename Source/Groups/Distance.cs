@@ -55,8 +55,6 @@ namespace Conversion.Source.Groups
             UnitType.yard,
             UnitType.mile,
             UnitType.nautical_mile,
-
-            UnitType.marathon,
         };
     }
 }

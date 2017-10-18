@@ -238,5 +238,113 @@ namespace Conversion.Resx {
                 return ResourceManager.GetString("exbibyte", resourceCulture);
             }
         }
+        
+        internal static string nautical_mile {
+            get {
+                return ResourceManager.GetString("nautical_mile", resourceCulture);
+            }
+        }
+        
+        internal static string mile {
+            get {
+                return ResourceManager.GetString("mile", resourceCulture);
+            }
+        }
+        
+        internal static string yard {
+            get {
+                return ResourceManager.GetString("yard", resourceCulture);
+            }
+        }
+        
+        internal static string foot {
+            get {
+                return ResourceManager.GetString("foot", resourceCulture);
+            }
+        }
+        
+        internal static string inch {
+            get {
+                return ResourceManager.GetString("inch", resourceCulture);
+            }
+        }
+        
+        internal static string gigameter {
+            get {
+                return ResourceManager.GetString("gigameter", resourceCulture);
+            }
+        }
+        
+        internal static string megameter {
+            get {
+                return ResourceManager.GetString("megameter", resourceCulture);
+            }
+        }
+        
+        internal static string kilometer {
+            get {
+                return ResourceManager.GetString("kilometer", resourceCulture);
+            }
+        }
+        
+        internal static string hectometer {
+            get {
+                return ResourceManager.GetString("hectometer", resourceCulture);
+            }
+        }
+        
+        internal static string decameter {
+            get {
+                return ResourceManager.GetString("decameter", resourceCulture);
+            }
+        }
+        
+        internal static string meter {
+            get {
+                return ResourceManager.GetString("meter", resourceCulture);
+            }
+        }
+        
+        internal static string decimeter {
+            get {
+                return ResourceManager.GetString("decimeter", resourceCulture);
+            }
+        }
+        
+        internal static string centimeter {
+            get {
+                return ResourceManager.GetString("centimeter", resourceCulture);
+            }
+        }
+        
+        internal static string millimeter {
+            get {
+                return ResourceManager.GetString("millimeter", resourceCulture);
+            }
+        }
+        
+        internal static string micrometer {
+            get {
+                return ResourceManager.GetString("micrometer", resourceCulture);
+            }
+        }
+        
+        internal static string nanometer {
+            get {
+                return ResourceManager.GetString("nanometer", resourceCulture);
+            }
+        }
+        
+        internal static string picometer {
+            get {
+                return ResourceManager.GetString("picometer", resourceCulture);
+            }
+        }
+        
+        internal static string femtometer {
+            get {
+                return ResourceManager.GetString("femtometer", resourceCulture);
+            }
+        }
     }
 }

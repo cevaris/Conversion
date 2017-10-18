@@ -26,7 +26,7 @@ namespace Conversion
             {
                 //return new CultureInfo("ja-JP");
                 //return new CultureInfo("es");
-                return CultureInfo.DefaultThreadCurrentUICulture;
+                return CultureInfo.CurrentCulture;
             }
         }
 
