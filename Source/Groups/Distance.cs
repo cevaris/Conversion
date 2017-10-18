@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Conversion.Source.Groups
 {
@@ -40,7 +41,10 @@ namespace Conversion.Source.Groups
             {
                 foreach (UnitType b in types())
                 {
-                    funcs.Add(Key(UnitGroup.distance, a, b), Convert(a, b));
+                    if (!funcs.ContainsKey(Key(UnitGroup.distance, a, b)))
+                    {
+                        funcs.Add(Key(UnitGroup.distance, a, b), Convert(a, b));
+                    }
                 }
             }
             return funcs;
@@ -48,33 +52,12 @@ namespace Conversion.Source.Groups
 
         protected override List<UnitType> types()
         {
-            return DistanceOpts;
+            return distanceConfigs
+                .Select(x => x.Type)
+                .ToList();
         }
 
-        public static List<UnitType> DistanceOpts = new List<UnitType>
-        {
-            UnitType.femtometer,
-            UnitType.picometer,
-            UnitType.nanometer,
-            UnitType.micrometer,
-            UnitType.millimeter,
-            UnitType.centimeter,
-            UnitType.decimeter,
-            UnitType.meter,
-            UnitType.decameter,
-            UnitType.hectometer,
-            UnitType.kilometer,
-            UnitType.megameter,
-            UnitType.gigameter,
-
-            UnitType.inch,
-            UnitType.foot,
-            UnitType.yard,
-            UnitType.mile,
-            UnitType.nautical_mile,
-        };
-
-        private static List<DistanceConfig> distancConfigs = new List<DistanceConfig>
+        private List<DistanceConfig> distanceConfigs = new List<DistanceConfig>
         {
             DistanceConfig.Create(UnitType.femtometer, FEMTO, METER),
             DistanceConfig.Create(UnitType.picometer, PICO, METER),
@@ -90,18 +73,18 @@ namespace Conversion.Source.Groups
             DistanceConfig.Create(UnitType.kilometer, KILO, METER),
             DistanceConfig.Create(UnitType.megameter, MEGA, METER),
             DistanceConfig.Create(UnitType.gigameter, GIGA, METER),
-            DistanceConfig.Create(UnitType.nautical_mile, NAUTICAL_MILE, METER),
 
             DistanceConfig.Create(UnitType.inch, BASE, INCH),
             DistanceConfig.Create(UnitType.foot, FOOT, INCH),
             DistanceConfig.Create(UnitType.yard, YARD, INCH),
             DistanceConfig.Create(UnitType.mile, MILE, INCH),
+            DistanceConfig.Create(UnitType.nautical_mile, NAUTICAL_MILE, METER),
         };
 
-        private static Func<Double, Double> Convert(UnitType from, UnitType to)
+        private Func<Double, Double> Convert(UnitType from, UnitType to)
         {
-            DistanceConfig fromType = distancConfigs.Find(x => x.Type == from);
-            DistanceConfig toType = distancConfigs.Find(x => x.Type == to);
+            DistanceConfig fromType = distanceConfigs.Find(x => x.Type == from);
+            DistanceConfig toType = distanceConfigs.Find(x => x.Type == to);
 
             return (Double x) =>
             {

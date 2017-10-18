@@ -75,7 +75,6 @@ namespace Conversion.Source.Groups
 
         protected override Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>> Load()
         {
-
             foreach (UnitType a in types())
             {
                 foreach (UnitType b in types())
