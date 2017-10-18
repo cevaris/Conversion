@@ -104,7 +104,7 @@ namespace Conversion.Source.Groups
             return (Double x) =>
             {
                 double fromBits = x * fromType.BitOrByte * fromType.Scale;
-                double toBits = x * toType.BitOrByte * toType.Scale;
+                double toBits = toType.BitOrByte * toType.Scale;
 
                 logger.Info($"({x}) => {fromBits} to {toBits}");
                 return fromBits / toBits;
