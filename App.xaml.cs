@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using Conversion.Source;
 using Xamarin.Forms;
 
 [assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
@@ -19,6 +20,20 @@ namespace Conversion
                 return isDebug;
             }
         }
+
+        private static IShared shared;
+        public static IShared Shared
+        {
+            get
+            {
+                if (shared == null)
+                {
+                    shared = DependencyService.Get<IShared>();
+                }
+                return shared;
+            }
+        }
+
 
         public static CultureInfo CurrentCultureInfo
         {

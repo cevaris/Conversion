@@ -61,6 +61,11 @@ namespace Conversion
             //    pickerRight.SelectedIndex = tmp;
             //    recalculate();
             //}
+            if (sender == NumRight)
+            {
+                App.Shared.CopyToClipbard(NumRight.Text);
+                DisplayAlert("Copied", "Text is now ready to paste", "OK");
+            }
 
             if (sender == pickerLeft || sender == pickerRight)
             {
