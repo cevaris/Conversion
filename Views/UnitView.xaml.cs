@@ -54,13 +54,13 @@ namespace Conversion
 
         void OnChangedEvent(object sender, System.EventArgs e)
         {
-            //if (sender == SwapLabel)
-            //{
-            //    var tmp = pickerLeft.SelectedIndex;
-            //    pickerLeft.SelectedIndex = pickerRight.SelectedIndex;
-            //    pickerRight.SelectedIndex = tmp;
-            //    recalculate();
-            //}
+            if (sender == SwapLabel)
+            {
+                var tmp = pickerLeft.SelectedIndex;
+                pickerLeft.SelectedIndex = pickerRight.SelectedIndex;
+                pickerRight.SelectedIndex = tmp;
+                recalculate();
+            }
             if (sender == NumRight)
             {
                 App.Shared.CopyToClipbard(NumRight.Text);

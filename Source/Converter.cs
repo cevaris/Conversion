@@ -24,6 +24,9 @@ namespace Conversion
         public static readonly double PETA = Math.Pow(10, 15);
         public static readonly double EXA = Math.Pow(10, 18);
 
+        public static readonly double MINUTE = 60;
+        public static readonly double HOUR = 3600;
+
         static private ILogger logger = new ConsoleLogger(nameof(Converter));
 
         protected Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>> funcs = new Dictionary<Tuple<UnitGroup, UnitType, UnitType>, Func<Double, Double>>();
