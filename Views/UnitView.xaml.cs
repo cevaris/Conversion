@@ -48,19 +48,19 @@ namespace Conversion
             Double result = converter.Convert(converter.Group, typeLeft, typeRight, input);
             NumRight.Text = result.ToString();
 
-            ResultInput.Text = Units.TAbbr(typeLeft);
-            ResultOutput.Text = Units.TAbbr(typeRight);
+            //ResultInput.Text = Units.TAbbr(typeLeft);
+            //ResultOutput.Text = Units.TAbbr(typeRight);
         }
 
         void OnChangedEvent(object sender, System.EventArgs e)
         {
-            if (sender == SwapLabel)
-            {
-                var tmp = pickerLeft.SelectedIndex;
-                pickerLeft.SelectedIndex = pickerRight.SelectedIndex;
-                pickerRight.SelectedIndex = tmp;
-                recalculate();
-            }
+            //if (sender == SwapLabel)
+            //{
+            //    var tmp = pickerLeft.SelectedIndex;
+            //    pickerLeft.SelectedIndex = pickerRight.SelectedIndex;
+            //    pickerRight.SelectedIndex = tmp;
+            //    recalculate();
+            //}
 
             if (sender == pickerLeft || sender == pickerRight)
             {
@@ -77,7 +77,17 @@ namespace Conversion
             string text = ((Entry)sender).Text;
             if (!String.IsNullOrEmpty(text))
             {
-                recalculate();
+                try
+                {
+                    Convert.ToDouble(e.NewTextValue);
+                    recalculate();
+                }
+                catch (FormatException ex)
+                {
+                    logger.Error($"error formatting {e.NewTextValue}", ex);
+                    NumLeft.Text = e.OldTextValue;
+                }
+ 
             }
         }
     }
