@@ -108,15 +108,6 @@ namespace Conversion
                                                        .Cast<UnitGroup>()
                                                        .ToList();
 
-        public static List<UnitType> TemperatureOpts = new List<UnitType>
-        {
-            UnitType.celsius,
-            UnitType.fahrenheit,
-            UnitType.kelvin,
-            UnitType.reaumur,
-            UnitType.newton,
-            UnitType.rankine
-        };
         public static List<UnitType> TimeOpts = new List<UnitType>
         {
             UnitType.year,
@@ -199,7 +190,7 @@ namespace Conversion
             {UnitGroup.data, Source.Groups.Data.Instance},
             {UnitGroup.distance, Source.Groups.Distance.Instance},
             {UnitGroup.speed, Source.Groups.Speed.Instance},
-            {UnitGroup.temperature, Source.Groups.Data.Instance},
+            {UnitGroup.temperature, Source.Groups.Tempurature.Instance},
             {UnitGroup.time, Source.Groups.Data.Instance},
             {UnitGroup.weight, Source.Groups.Data.Instance},
         };

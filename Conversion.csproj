@@ -79,6 +79,7 @@
     <Compile Include="Source\Groups\Distance.cs" />
     <Compile Include="Source\Groups\Speed.cs" />
     <Compile Include="Source\IShared.cs" />
+    <Compile Include="Source\Groups\Tempurature.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Source\" />

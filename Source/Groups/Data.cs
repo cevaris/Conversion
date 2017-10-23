@@ -79,7 +79,7 @@ namespace Conversion.Source.Groups
             {
                 foreach (UnitType b in types())
                 {
-                    funcs.Add(Key(UnitGroup.data, a, b), Convert(a, b));
+                    funcs.Add(Key(group(), a, b), Convert(a, b));
                 }
             }
 
