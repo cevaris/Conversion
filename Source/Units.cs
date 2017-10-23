@@ -87,19 +87,23 @@ namespace Conversion
         rankine,
 
         // Time
-        year,
-        quarter,
-        month,
-        week,
-        day,
+        femtosecond,
+        picosecond,
+        nanosecond,
+        microsecond,
+        millisecond,
+        second,
         hour,
         minute,
-        second,
-        millisecond,
-        microsecond,
-        picosecond,
-        femtosecond,
-        attosecond
+        day,
+        week,
+        fortnight,
+        month,
+        quarter,
+        year,
+        decade,
+        century,
+        millennium,
     }
 
     class Units
@@ -107,23 +111,6 @@ namespace Conversion
         public static List<UnitGroup> UnitGroups = Enum.GetValues(typeof(UnitGroup))
                                                        .Cast<UnitGroup>()
                                                        .ToList();
-
-        public static List<UnitType> TimeOpts = new List<UnitType>
-        {
-            UnitType.year,
-            UnitType.quarter,
-            UnitType.month,
-            UnitType.week,
-            UnitType.day,
-            UnitType.hour,
-            UnitType.minute,
-            UnitType.second,
-            UnitType.millisecond,
-            UnitType.microsecond,
-            UnitType.picosecond,
-            UnitType.femtosecond,
-            UnitType.attosecond
-        };
 
         public static IDictionary<UnitType, string> UnitTypeAbbrNameMap = new Dictionary<UnitType, string>()
         {
@@ -196,7 +183,7 @@ namespace Conversion
             {UnitGroup.distance, Source.Groups.Distance.Instance},
             {UnitGroup.speed, Source.Groups.Speed.Instance},
             {UnitGroup.temperature, Source.Groups.Tempurature.Instance},
-            {UnitGroup.time, Source.Groups.Data.Instance},
+            {UnitGroup.time, Source.Groups.Time.Instance},
             {UnitGroup.weight, Source.Groups.Data.Instance},
         };
 

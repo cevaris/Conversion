@@ -24,8 +24,8 @@ namespace Conversion
         public static readonly double PETA = Math.Pow(10, 15);
         public static readonly double EXA = Math.Pow(10, 18);
 
-        public static readonly double MINUTE = 60;
-        public static readonly double HOUR = 3600;
+        public const double MINUTE = BASE * 60;
+        public const double HOUR = MINUTE * 60;
 
         static private ILogger logger = new ConsoleLogger(nameof(Converter));
 

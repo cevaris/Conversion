@@ -82,6 +82,7 @@ namespace Conversion.Source.Groups
             SpeedConfig.Create(UnitType.knot, BASE, NAUTICAL_MILE, HOUR),
             SpeedConfig.Create(UnitType.feetPerSecond, BASE, FEET, BASE),
         };
+
     }
 
     class SpeedConfig
