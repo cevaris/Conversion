@@ -183,6 +183,11 @@ namespace Conversion
             {UnitType.milePerHour, "mph"},
             {UnitType.knot, "kn"},
             {UnitType.feetPerSecond, "ft/s"},
+
+            {UnitType.celsius, "°C"},
+            {UnitType.fahrenheit, "°F"},
+            {UnitType.kelvin, "°K"},
+            {UnitType.rankine, "°R"},
         };
 
         public static IDictionary<UnitGroup, Converter> ConverterMap = new Dictionary<UnitGroup, Converter>()
