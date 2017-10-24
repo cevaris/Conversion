@@ -5,12 +5,14 @@ namespace Conversion.Source.Groups
 {
     public class Time : Converter
     {
-        private static readonly DateTime epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-
         private const double DAY = HOUR * 24;
         private const double WEEK = DAY * 7;
-        private static readonly double MONTH = epoch.AddMonths(1).Subtract(epoch).TotalSeconds;
-        private static readonly double YEAR = epoch.AddYears(1).Subtract(epoch).TotalSeconds;
+        // Days in Year taken from https://pumas.gsfc.nasa.gov/files/04_21_97_1.pdf
+        private static readonly double MONTH = DAY * 365.2422 / 12; 
+        private static readonly double YEAR = MONTH * 12;
+        private static readonly double DECADE = YEAR * 10;
+        private static readonly double CENTERY = YEAR * 100;
+        private static readonly double MILLENNIUM = YEAR * 100;
 
         static private ILogger logger = new ConsoleLogger(nameof(Time));
 
@@ -51,7 +53,6 @@ namespace Conversion.Source.Groups
         {
             TimeConfig fromType = configs.Find(x => x.Type == from);
             TimeConfig toType = configs.Find(x => x.Type == to);
-
             return (Double x) =>
             {
                 double numerator = x * fromType.ToSeconds;
@@ -73,7 +74,7 @@ namespace Conversion.Source.Groups
             TimeConfig.Create(UnitType.picosecond, PICO),
             TimeConfig.Create(UnitType.nanosecond, NANO),
             TimeConfig.Create(UnitType.microsecond, MICRO),
-            TimeConfig.Create(UnitType.millisecond, 1 / MILLI),
+            TimeConfig.Create(UnitType.millisecond, MILLI),
             TimeConfig.Create(UnitType.second, BASE),
             TimeConfig.Create(UnitType.minute, MINUTE),
             TimeConfig.Create(UnitType.hour, HOUR),
@@ -81,10 +82,10 @@ namespace Conversion.Source.Groups
             TimeConfig.Create(UnitType.week, WEEK),
             TimeConfig.Create(UnitType.fortnight, WEEK * 2),
             TimeConfig.Create(UnitType.month, MONTH),
-            TimeConfig.Create(UnitType.quarter, MONTH * 4),
             TimeConfig.Create(UnitType.year, YEAR),
-            TimeConfig.Create(UnitType.decade, epoch.AddYears(10).Subtract(epoch).TotalSeconds),
-            TimeConfig.Create(UnitType.millennium, epoch.AddYears(1000).Subtract(epoch).TotalSeconds),
+            TimeConfig.Create(UnitType.decade, DECADE),
+            TimeConfig.Create(UnitType.century, CENTERY),
+            TimeConfig.Create(UnitType.millennium, MILLENNIUM),
         };
     }
 

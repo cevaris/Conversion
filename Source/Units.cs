@@ -99,7 +99,6 @@ namespace Conversion
         week,
         fortnight,
         month,
-        quarter,
         year,
         decade,
         century,
