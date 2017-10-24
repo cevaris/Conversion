@@ -5,18 +5,18 @@
             <StackLayout Spacing="20" Margin="10,5,10,0" VerticalOptions="CenterAndExpand">
                 <StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Entry x:Name="NumLeft" Keyboard="Numeric" FontSize="Large" HeightRequest="50" HorizontalOptions="FillAndExpand" Placeholder="Enter value to convert" TextChanged="OnTextChanged" />
-                    </StackLayout>
-                    <Picker x:Name="pickerLeft" HeightRequest="40" HorizontalOptions="FillAndExpand" SelectedIndexChanged="OnChangedEvent" Grid.Column="0" />
-                    <Label Text="=" FontSize="40" HorizontalOptions="Center" VerticalOptions="Center" />
-                    <StackLayout Orientation="Horizontal">
-                        <Label x:Name="NumRight" FontSize="30" HeightRequest="40" HorizontalOptions="EndAndExpand" Text="3.1415926535897932">
+                        <Label x:Name="NumOutput" FontSize="30" HeightRequest="40" HorizontalOptions="EndAndExpand" Text="3.1415926535897932">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnChangedEvent" NumberOfTapsRequired="2" />
                             </Label.GestureRecognizers>
                         </Label>
                     </StackLayout>
-                    <Picker x:Name="pickerRight" HeightRequest="40" HorizontalOptions="FillAndExpand" SelectedIndexChanged="OnChangedEvent" Grid.Column="2" />
+                    <Picker x:Name="pickerOutput" HeightRequest="40" HorizontalOptions="FillAndExpand" SelectedIndexChanged="OnChangedEvent" Grid.Column="2" />
+                    <Label Text="=" FontSize="40" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <StackLayout Orientation="Horizontal">
+                        <Entry x:Name="NumInput" Keyboard="Numeric" FontSize="Large" HeightRequest="50" HorizontalOptions="FillAndExpand" Placeholder="Enter value to convert" TextChanged="OnTextChanged" />
+                    </StackLayout>
+                    <Picker x:Name="pickerInput" HeightRequest="40" HorizontalOptions="FillAndExpand" SelectedIndexChanged="OnChangedEvent" Grid.Column="0" />
                 </StackLayout>
             </StackLayout>
             <Label x:Name="SwapLabel" Text="⇆" FontSize="40" HorizontalOptions="EndAndExpand" Margin="0, 0, 10, 0">

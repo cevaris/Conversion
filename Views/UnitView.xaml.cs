@@ -29,48 +29,45 @@ namespace Conversion
             UnitTypes = converter.Types;
 
             List<string> pickerList = UnitTypes.Select(x => $"{Units.T(x)} ({Units.TAbbr(x)})").ToList();
-            pickerLeft.ItemsSource = pickerList;
-            pickerLeft.SelectedIndex = 0;
-            pickerRight.ItemsSource = pickerList;
-            pickerRight.SelectedIndex = 1;
+            pickerInput.ItemsSource = pickerList;
+            pickerInput.SelectedIndex = 1;
+            pickerOutput.ItemsSource = pickerList;
+            pickerOutput.SelectedIndex = 0;
 
-            NumLeft.Text = "1";
+            NumInput.Text = "1";
             recalculate();
         }
 
         private void recalculate()
         {
-            UnitType typeLeft = UnitTypes[pickerLeft.SelectedIndex];
-            UnitType typeRight = UnitTypes[pickerRight.SelectedIndex];
+            UnitType typeInput = UnitTypes[pickerInput.SelectedIndex];
+            UnitType typeOutput = UnitTypes[pickerOutput.SelectedIndex];
 
-            Double input = Convert.ToDouble(NumLeft.Text);
+            Double input = Convert.ToDouble(NumInput.Text);
             logger.Info($"parsed value: {input}");
-            Double result = converter.Convert(converter.Group, typeLeft, typeRight, input);
-            NumRight.Text = result.ToString();
-
-            //ResultInput.Text = Units.TAbbr(typeLeft);
-            //ResultOutput.Text = Units.TAbbr(typeRight);
+            Double result = converter.Convert(converter.Group, typeInput, typeOutput, input);
+            NumOutput.Text = result.ToString();
         }
 
         void OnChangedEvent(object sender, System.EventArgs e)
         {
             if (sender == SwapLabel)
             {
-                var tmp = pickerLeft.SelectedIndex;
-                pickerLeft.SelectedIndex = pickerRight.SelectedIndex;
-                pickerRight.SelectedIndex = tmp;
+                var tmp = pickerInput.SelectedIndex;
+                pickerInput.SelectedIndex = pickerOutput.SelectedIndex;
+                pickerOutput.SelectedIndex = tmp;
                 recalculate();
             }
-            if (sender == NumRight)
+            if (sender == NumOutput)
             {
-                App.Shared.CopyToClipbard(NumRight.Text);
+                App.Shared.CopyToClipbard(NumOutput.Text);
                 DisplayAlert("Copied", "Text is now ready to paste", "OK");
             }
 
-            if (sender == pickerLeft || sender == pickerRight)
+            if (sender == pickerInput || sender == pickerOutput)
             {
-                logger.Info($"{pickerLeft.SelectedIndex} - {pickerRight.SelectedIndex}");
-                if (pickerLeft.SelectedIndex >= 0 && pickerRight.SelectedIndex >= 0)
+                logger.Info($"{pickerInput.SelectedIndex} - {pickerOutput.SelectedIndex}");
+                if (pickerInput.SelectedIndex >= 0 && pickerOutput.SelectedIndex >= 0)
                 {
                     recalculate();
                 }
@@ -90,7 +87,7 @@ namespace Conversion
                 catch (FormatException ex)
                 {
                     logger.Error($"error formatting {e.NewTextValue}", ex);
-                    NumLeft.Text = e.OldTextValue;
+                    NumInput.Text = e.OldTextValue;
                 }
  
             }
