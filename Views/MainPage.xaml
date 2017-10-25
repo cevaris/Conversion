@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Conversion.Views;assembly=Conversion"
-    x:Class="Conversion.Views.MainPage"
-    Title="Conversion">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Conversion.Views;assembly=Conversion" x:Class="Conversion.Views.MainPage" Title="Conversion">
     <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness"
-            iOS="0, 20, 0, 0" />
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
     </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
             <StackLayout VerticalOptions="FillAndExpand">
-                <ListView x:Name="UnitsList"
-                    ItemSelected="OnSelectedItem"
-                    RowHeight="100">
+                <ListView x:Name="UnitsList" ItemSelected="OnSelectedItem" RowHeight="100">
                     <ListView.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate> 
                             <ViewCell>
                                 <Grid Margin="10">
                                     <Grid.RowDefinitions>
@@ -25,20 +18,17 @@
                                         <ColumnDefinition Width="100" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <BoxView Grid.Row="0"
-                                        BackgroundColor="Aqua" />
-                                    <Label Grid.Column="1"
-                                        Grid.Row="0"
-                                        Text="{Binding Name}"
-                                        VerticalOptions="Center" />
+                                    <!--<BoxView Grid.Row="0"
+                                        BackgroundColor="Aqua" />-->
+                                    <Image Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding GroupImageSource}" />
+                                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" VerticalOptions="Center" />
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <StackLayout VerticalOptions="End"
-                HeightRequest="50">
+            <StackLayout VerticalOptions="End" HeightRequest="50">
                 <!--<BoxView HeightRequest="50"
                     BackgroundColor="Lime"
                     HorizontalOptions="FillAndExpand" />-->

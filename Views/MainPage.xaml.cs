@@ -23,7 +23,8 @@ namespace Conversion.Views
                 UnitGroupItemsSource.Add(new UnitGroupModel
                 {
                     UnitGroup = unitGroup,
-                    Name = Units.T(unitGroup)
+                    Name = Units.T(unitGroup),
+                    GroupImageSource = ImageSource.FromResource($"Conversion.Resources.{unitGroup}.png"),
                 });
             }
 

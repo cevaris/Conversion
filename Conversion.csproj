@@ -47,6 +47,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.ja.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\data.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -89,6 +90,7 @@
     <Folder Include="Models\" />
     <Folder Include="Resx\" />
     <Folder Include="Source\Groups\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

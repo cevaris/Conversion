@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Xamarin.Forms;
 
 namespace Conversion.Models
 {
@@ -8,8 +8,6 @@ namespace Conversion.Models
 
         public UnitGroup UnitGroup { get; set; }
 
-        public UnitGroupModel()
-        {
-        }
+        public ImageSource GroupImageSource { get; set; }
     }
 }
