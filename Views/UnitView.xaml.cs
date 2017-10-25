@@ -28,7 +28,18 @@ namespace Conversion
             Title = Units.T(converter.Group);
             UnitTypes = converter.Types;
 
-            List<string> pickerList = UnitTypes.Select(x => $"{Units.T(x)} ({Units.TAbbr(x)})").ToList();
+            List<string> pickerList = UnitTypes
+                .Select(x =>
+                {
+                    string abr = Units.TAbbr(x);
+                    if (!string.IsNullOrEmpty(abr))
+                    {
+                        abr = $"({abr})";
+                    }
+                    return $"{Units.T(x)} {abr}";
+                })
+                .ToList();
+
             pickerInput.ItemsSource = pickerList;
             pickerInput.SelectedIndex = 1;
             pickerOutput.ItemsSource = pickerList;
@@ -58,6 +69,7 @@ namespace Conversion
                 pickerOutput.SelectedIndex = tmp;
                 recalculate();
             }
+
             if (sender == NumOutput)
             {
                 App.Shared.CopyToClipbard(NumOutput.Text);
@@ -89,7 +101,7 @@ namespace Conversion
                     logger.Error($"error formatting {e.NewTextValue}", ex);
                     NumInput.Text = e.OldTextValue;
                 }
- 
+
             }
         }
     }

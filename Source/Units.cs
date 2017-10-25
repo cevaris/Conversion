@@ -174,6 +174,23 @@ namespace Conversion
             {UnitType.fahrenheit, "°F"},
             {UnitType.kelvin, "°K"},
             {UnitType.rankine, "°R"},
+
+            {UnitType.femtosecond, "fs"},
+            {UnitType.picosecond, "ps"},
+            {UnitType.nanosecond, "ns"},
+            {UnitType.microsecond, "µs"},
+            {UnitType.millisecond, "ms"},
+            {UnitType.second, "s"},
+            {UnitType.minute, "min"},
+            {UnitType.hour, "h"},
+            //{UnitType.day, ""},
+            {UnitType.week, "wk"},
+            //{UnitType.fortnight, ""},
+            {UnitType.month, "mth"},
+            {UnitType.year, "yr"},
+            //{UnitType.decade, ""},
+            //{UnitType.century, "C"},
+            //{UnitType.millennium, ""},
         };
 
         public static IDictionary<UnitGroup, Converter> ConverterMap = new Dictionary<UnitGroup, Converter>()
@@ -214,15 +231,9 @@ namespace Conversion
 
         public static string TAbbr(UnitType unitType)
         {
-            string result;
-            if (UnitTypeAbbrNameMap.TryGetValue(unitType, out result))
-            {
-                return result;
-            }
-            else
-            {
-                return unitType.ToString();
-            }
+            string result = null;            
+            UnitTypeAbbrNameMap.TryGetValue(unitType, out result);
+            return result;
         }
     }
 }
