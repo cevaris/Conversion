@@ -48,6 +48,9 @@
       <LastGenOutput>AppResources.ja.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\data.png" />
+    <EmbeddedResource Include="Resources\distance.png" />
+    <EmbeddedResource Include="Resources\speed.png" />
+    <EmbeddedResource Include="Resources\temperature.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">

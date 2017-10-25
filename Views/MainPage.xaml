@@ -8,7 +8,7 @@
             <StackLayout VerticalOptions="FillAndExpand">
                 <ListView x:Name="UnitsList" ItemSelected="OnSelectedItem" RowHeight="100">
                     <ListView.ItemTemplate>
-                        <DataTemplate> 
+                        <DataTemplate>
                             <ViewCell>
                                 <Grid Margin="10">
                                     <Grid.RowDefinitions>
@@ -18,8 +18,6 @@
                                         <ColumnDefinition Width="100" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <!--<BoxView Grid.Row="0"
-                                        BackgroundColor="Aqua" />-->
                                     <Image Aspect="AspectFit" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Source="{Binding GroupImageSource}" />
                                     <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" VerticalOptions="Center" />
                                 </Grid>
