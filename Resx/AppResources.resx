@@ -270,7 +270,7 @@
 	<data name="femtometer" xml:space="preserve">
         <value>femtometer</value>
     </data>
-    <!-- Speed -->
+	<!-- Speed -->
 	<data name="metersPerSecond" xml:space="preserve">
         <value>meters per second</value>
     </data>
@@ -285,5 +285,15 @@
     </data>
 	<data name="feetPerSecond" xml:space="preserve">
         <value>feet per second</value>
+    </data>
+	<!-- weight -->
+	<data name="megagram_metric_ton" xml:space="preserve">
+        <value>megagram/metric_ton</value>
+    </data>
+	<data name="us_ton" xml:space="preserve">
+        <value>us ton</value>
+    </data>
+	<data name="imperial_ton" xml:space="preserve">
+        <value>imperial ton</value>
     </data>
 </root>

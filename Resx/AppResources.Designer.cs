@@ -376,5 +376,23 @@ namespace Conversion.Resx {
                 return ResourceManager.GetString("feetPerSecond", resourceCulture);
             }
         }
+        
+        internal static string megagram_metric_ton {
+            get {
+                return ResourceManager.GetString("megagram_metric_ton", resourceCulture);
+            }
+        }
+        
+        internal static string us_ton {
+            get {
+                return ResourceManager.GetString("us_ton", resourceCulture);
+            }
+        }
+        
+        internal static string imperial_ton {
+            get {
+                return ResourceManager.GetString("imperial_ton", resourceCulture);
+            }
+        }
     }
 }

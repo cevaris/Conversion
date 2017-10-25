@@ -103,6 +103,26 @@ namespace Conversion
         decade,
         century,
         millennium,
+
+        // Weight
+        microgram,
+        milligram, //1/1K grams
+        centigram,
+        decigram, // 1/10 gram
+        carat, // 1/5 gram
+        gram,
+        decagram,
+        hectogram,
+        kilogram, //1K grams
+        megagram_metric_ton, //1K Kg
+
+        grain,
+        dram,
+        ounce,
+        pound,
+        stone,
+        us_ton,
+        imperial_ton,
     }
 
     class Units
@@ -191,6 +211,26 @@ namespace Conversion
             //{UnitType.decade, ""},
             //{UnitType.century, "C"},
             //{UnitType.millennium, ""},
+
+
+            {UnitType.microgram, "µg"},
+            {UnitType.milligram, "mg"}, //1/1K grams
+            {UnitType.centigram, "cg"},
+            {UnitType.decigram, "dg"},
+            {UnitType.carat, "c"},
+            {UnitType.gram, "g"},
+            {UnitType.decagram, "dag"},
+            {UnitType.hectogram, "hg"},
+            {UnitType.kilogram, "kg"}, //1K grams
+            {UnitType.megagram_metric_ton, "Mg/t"}, //1K kg
+
+            {UnitType.grain, "gr"},
+            {UnitType.dram, "dr"},
+            {UnitType.ounce, "oz"},
+            {UnitType.pound, "lb"},
+            {UnitType.stone, "st"},
+            {UnitType.us_ton, "t"},
+            {UnitType.imperial_ton, "t"},
         };
 
         public static IDictionary<UnitGroup, Converter> ConverterMap = new Dictionary<UnitGroup, Converter>()
@@ -200,7 +240,7 @@ namespace Conversion
             {UnitGroup.speed, Source.Groups.Speed.Instance},
             {UnitGroup.temperature, Source.Groups.Tempurature.Instance},
             {UnitGroup.time, Source.Groups.Time.Instance},
-            {UnitGroup.weight, Source.Groups.Data.Instance},
+            {UnitGroup.weight, Source.Groups.Weight.Instance},
         };
 
         public static string T(UnitGroup unitGroup)

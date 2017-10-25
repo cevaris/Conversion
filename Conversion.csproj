@@ -81,6 +81,7 @@
     <Compile Include="Source\IShared.cs" />
     <Compile Include="Source\Groups\Tempurature.cs" />
     <Compile Include="Source\Groups\Time.cs" />
+    <Compile Include="Source\Groups\Weight.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Source\" />
