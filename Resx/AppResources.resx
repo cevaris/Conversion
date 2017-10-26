@@ -288,7 +288,7 @@
     </data>
 	<!-- weight -->
 	<data name="megagram_metric_ton" xml:space="preserve">
-        <value>megagram/metric_ton</value>
+        <value>megagram/metric ton</value>
     </data>
 	<data name="us_ton" xml:space="preserve">
         <value>us ton</value>

@@ -51,6 +51,8 @@
     <EmbeddedResource Include="Resources\distance.png" />
     <EmbeddedResource Include="Resources\speed.png" />
     <EmbeddedResource Include="Resources\temperature.png" />
+    <EmbeddedResource Include="Resources\time.png" />
+    <EmbeddedResource Include="Resources\weight.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">

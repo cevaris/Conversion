@@ -5,6 +5,12 @@ using Xamarin.Forms;
 [assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace Conversion
 {
+    public enum AdsState {
+        Render,
+        RenderBoxes,
+        RenderNothing
+    }
+
     public partial class App : Application
     {
         public static bool IsDebug
