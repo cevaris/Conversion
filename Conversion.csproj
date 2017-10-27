@@ -39,14 +39,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resx\AppResources.es.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.es.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resx\AppResources.ja.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.ja.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\data.png" />
     <EmbeddedResource Include="Resources\distance.png" />
     <EmbeddedResource Include="Resources\speed.png" />
@@ -75,12 +67,6 @@
     <Compile Include="Resx\AppResources.Designer.cs">
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resx\AppResources.es.Designer.cs">
-      <DependentUpon>AppResources.es.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resx\AppResources.ja.Designer.cs">
-      <DependentUpon>AppResources.ja.resx</DependentUpon>
-    </Compile>
     <Compile Include="Source\Groups\Data.cs" />
     <Compile Include="Source\Groups\Distance.cs" />
     <Compile Include="Source\Groups\Speed.cs" />
@@ -88,6 +74,7 @@
     <Compile Include="Source\Groups\Tempurature.cs" />
     <Compile Include="Source\Groups\Time.cs" />
     <Compile Include="Source\Groups\Weight.cs" />
+    <Compile Include="Views\AdRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Source\" />
@@ -110,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Source\Info.plist" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="packages\Xamarin.Forms.2.3.4.270\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('packages\Xamarin.Forms.2.3.4.270\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

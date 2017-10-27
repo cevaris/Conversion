@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Google.MobileAds;
 using UIKit;
 using CoreGraphics;
+using System;
 
 [assembly: ExportRenderer(typeof(Conversion.Views.PclAdBannerView), typeof(Conversion.iOS.AdBannerView))]
 namespace Conversion.iOS
@@ -17,10 +18,10 @@ namespace Conversion.iOS
         {
             base.OnElementChanged(e);
 
-            if (e.NewElement == null)
+            if (e.NewElement == null || App.AdsRenderState == AdsState.RenderNothing)
                 return;
 
-            if (e.OldElement == null)
+            if (e.OldElement == null && App.AdsRenderState == AdsState.Render)
             {
                 UIViewController viewCtrl = null;
 

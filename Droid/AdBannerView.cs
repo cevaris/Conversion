@@ -18,10 +18,10 @@ namespace Conversion.Droid
         {
             base.OnElementChanged(e);
 
-            if (e.NewElement == null)
+            if (e.NewElement == null || App.AdsRenderState == AdsState.RenderNothing)
                 return;
 
-            if (e.OldElement == null)
+            if (e.OldElement == null && App.AdsRenderState == AdsState.Render)
             {
 
                 ScreenLayout screenlayout = Resources.Configuration.ScreenLayout;

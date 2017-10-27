@@ -41,7 +41,7 @@
                     </Label.GestureRecognizers>
                 </Label>
             </StackLayout>
-            <StackLayout VerticalOptions="End" HeightRequest="50">
+            <StackLayout VerticalOptions="End">
                 <!--                <BoxView BackgroundColor="Olive" HeightRequest="50" />-->
                 <local:PclAdBannerView />
             </StackLayout>

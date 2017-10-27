@@ -7,12 +7,21 @@ namespace Conversion
 {
     public enum AdsState {
         Render,
-        RenderBoxes,
         RenderNothing
     }
 
     public partial class App : Application
     {
+        public const string Name = "Convert & Stuff";
+
+        public static AdsState AdsRenderState
+        {
+            get
+            {
+                return AdsState.Render;
+            }
+        }
+
         public static bool IsDebug
         {
             get
